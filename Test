@@ -1,0 +1,910 @@
+
+
+Soft and Deep copy
+===========================
+
+Just remember : shallow copy
+
+Soft copy
+---------
+
+= 	==> "equal to" , assignment. It will create the new object with new address
+
+
+>>> my_a = [[1,2,3],[4,5,6],[7,8,9]]
+>>>
+>>> id(my_a)
+140401326016416
+>>> print type(my_a)
+<type 'list'>
+>>>
+>>> my_b = my_a
+>>>
+>>> print my_b
+[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>>
+>>> id(my_b)
+140401326016416
+>>>
+>>> id(my_a)
+140401326016416
+>>>
+
+
+==> Both is having same address number
+
+IMP : "is" operation is address comparision
+
+>>> my_a is my_b   ==> Checks the address of my_a is equal to my_b same or not.
+True
+>>>
+>>> print my_a
+[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>>
+>>> print my_b
+[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>>
+>>> my_a[0][1] = "Two"
+>>> print my_a
+[[1, 'Two', 3], [4, 5, 6], [7, 8, 9]]
+>>>
+>>> print my_b
+[[1, 'Two', 3], [4, 5, 6], [7, 8, 9]]
+>>>
+
+
+IMP : ==> Once you edited the elements in my_a that will affected in my_b. becoz my_a and my_b are having same address space. This is soft copy.
+
+
+
+Deep copy
+----------
+>>> my_a = [[1,2,3],[4,5,6],[7,8,9]]
+>>>
+>>> import copy 	==> copy module is used to create the deep copy.
+>>>
+>>> dir(copy)
+['Error', 'PyStringMap', '_EmptyClass', '__all__', '__builtins__', '__doc__', '__file__', '__name__', '__package__', '_copy_dispatch', '_copy_immutable', '_copy_inst', '_copy_with_constructor', '_copy_with_copy_method', '_deepcopy_atomic', '_deepcopy_dict', '_deepcopy_dispatch', '_deepcopy_inst', '_deepcopy_list', '_deepcopy_method', '_deepcopy_tuple', '_keep_alive', '_reconstruct', '_test', 'copy', 'deepcopy', 'dispatch_table', 'error', 'name', 't', 'weakref']
+>>>
+>>> id(my_a)
+140643922188264
+>>>
+>>> my_b = copy.deepcopy(my_a)
+>>>
+>>> id(my_b)
+140643922188480
+>>>
+>>> my_a is my_b    ==> Both my_a = my_b address are not equal so if we change the elements in one list will not get affected.
+False
+>>>
+>>> my_a[0][1] = "Two"
+>>>
+>>> print my_a
+[[1, 'Two', 3], [4, 5, 6], [7, 8, 9]]
+>>>
+>>> print my_b
+[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>>
+
+
+we can create deep copy in different way
+
+>>> my_a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>>
+>>> my_b = my_a[:]    ==> deep copy
+>>>
+>>> print my_a
+[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> print my_b
+[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>>
+>>> id(my_a)
+140001016522728
+>>> id(my_b)
+140001016522800
+>>>
+>>> my_a is my_b
+False
+>>>
+
+
+
+Example :
+==> seperate the duplicates and non-duplicates using deep copy.
+ 
+
+ [root@gie1vgso203182 python_programs]# cat deepcopy.py
+ #!/usr/bin/env python
+import copy
+
+fruit_list = ['cherry','apple','banana','cherry','apple','orange','watermelon','orange']
+dup_fruit_list = list()
+
+for fruit in fruit_list[:]:					==> Like Namespace. fruit_list[:] doesnot have variable. This will create and store in memory. This is deep copy with no variable.
+    if fruit_list.count(fruit) > 1:
+        if fruit not in dup_fruit_list:
+            dup_fruit_list.append(fruit)
+        fruit_list.remove(fruit)
+
+print "Fruit List:" , fruit_list
+print 'Duplicate Items' , dup_fruit_list
+
+Execution : 
+[root@gie1vgso203182 python_programs]# python deepcopy.py
+Fruit List: ['banana', 'cherry', 'apple', 'watermelon', 'orange']
+Duplicate Items ['cherry', 'apple', 'orange']
+[root@gie1vgso203182 python_programs]#
+
+
+========================================================================================================================================================================================================
+
+List comprehensions
+---------------------
+
+Example :
+---------
+>>> num = "1,2,3,4,5,6,7,8,9,10"
+
+We need output like "2,4,6,8,10"
+
+>>> ",".join([value for value in num.split(",") if int(value) % 2 == 0])
+'2,4,6,8,10'
+>>>
+
+
+Example:
+------------
+>>> my_string = "python is red"
+
+we need output like [['python', 'Python', 'PYTHON'], ['is', 'Is', 'IS'], ['red', 'Red', 'RED']]
+
+
+>>> [[value, value.capitalize(), value.upper()] for value in my_string.split(" ")]
+[['python', 'Python', 'PYTHON'], ['is', 'Is', 'IS'], ['red', 'Red', 'RED']]
+>>>
+
+
+
+========================================================================================================================================================================================================
+
+
+Tuples :   ==> readonly representation of lists, support indexing and slicing
+==========
+
+>>> gender = ('male','female')
+
+>>> print gender,type(gender)
+('male', 'female') <type 'tuple'>
+
+>>> my_empty_tuple = ()					==> we can create empty tuple one way 
+>>> my_empty_tuple_1 = tuple()			==> the another way of creating empty tuple
+
+Basically creating empty tuple is use less. because we can modify or add elements to tuple.
+
+>>> print my_empty_tuple, type(my_empty_tuple)
+() <type 'tuple'>
+>>> print my_empty_tuple_1, type(my_empty_tuple_1)
+() <type 'tuple'>
+
+
+
+
+>>> my_string = ("python")					==> still it is string with ()
+>>> print my_string, type(my_string)	
+python <type 'str'>
+
+>>> my_string = ("python",)					==> atleast one element with comma separation will treat as tuple
+>>> print my_string, type(my_string)
+('python',) <type 'tuple'>
+
+>>> my_string = "python","django","devops","linux"		==> without () also will treat as tuple
+>>> print my_string, type(my_string)
+('python', 'django', 'devops', 'linux') <type 'tuple'>
+>>>
+
+
+Only 2 methods available in tuple.
+------------------------------------
+>>> dir(my_string)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'count', 'index']
+
+
+
+========================================================================================================================================================================================================
+
+Packing
+-------
+
+Lists and Tuples are called packages.
+
+>>> my_fruits = ('apple','banana','cherry','dragon')
+>>>
+>>> a,b,c,d = my_fruits		==> unpacking.
+>>>
+>>> print a
+apple
+>>> print b
+banana
+>>> print c
+cherry
+>>> print d
+dragon
+
+
+>>> a,b,c = my_fruits                      ==> Mentioning Less variables throws Error
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: too many values to unpack
+
+
+>>> a,b,c,d,e = my_fruits					==> Mentioning more variables throws Error
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: need more than 4 values to unpack
+
+
+
+Example :
+---------
+>>> student = ['sam','micheal','jack','ram','david']
+>>> subject = ['python','puppet','django','chef','ansible']
+
+>>> for value in student:
+...   print "{} is giving {}".format(value,subject[student.index(value)])
+
+sam is giving python
+micheal is giving puppet
+jack is giving django
+ram is giving chef
+david is giving ansible
+>>>
+
+
+
+-------------------------------------------
+>>> my_exams = [('1','one'),('2','two'),('3','three')]
+
+>>> for num,alphahets in my_exams:										==> unpacking without braces. even without round backets it will treat as tuple
+...   print "{} is number and {} is alpha".format(num,alphahets)
+...
+1 is number and one is alpha
+2 is number and two is alpha
+3 is number and three is alpha
+
+
+>>> for (num,alphahets) in my_exams:									==> unpacking without braces. even with round brackets.
+...   print "{} is number and {} is alpha".format(num,alphahets)
+...
+1 is number and one is alpha
+2 is number and two is alpha
+3 is number and three is alpha
+>>>
+
+
+Example
+==========
+>>> my_exams = [('rahim','python'),('john','java'),('hari','Devops')]
+
+>>> for name,lang in my_exams:
+...   print "{} is writing {} exam".format(name,lang)
+...
+rahim is writing python exam
+john is writing java exam
+hari is writing Devops exam
+>>>
+
+IMP : pre-climax. if we sort the my_exams list the person name should write there respective exams
+
+>>> my_exams.sort()
+
+>>> print my_exams
+[('hari', 'Devops'), ('john', 'java'), ('rahim', 'python')]
+
+>>> for name,lang in my_exams:
+...    print "{} is writing {} exam".format(name,lang)
+...
+hari is writing Devops exam
+john is writing java exam
+rahim is writing python exam
+
+
+The output should be like person should write there respective exams even modify sort the my_exams list. This will helps in data structure.
+
+
+---------------
+overwrite tuple in list
+
+>>> print my_exams
+[('hari', 'Devops'), ('john', 'java'), ('rahim', 'python')]
+>>>
+>>> my_exams[1] = ('john','Django')
+>>>
+>>> print my_exams
+[('hari', 'Devops'), ('john', 'Django'), ('rahim', 'python')]
+>>>
+
+-----------
+Entire elemnet in tuple can be modify. But list within tuple can able to modify. Example given below.
+
+>>> my_a = (['hari','Django'],['ravi','python'],['john','chef'])
+
+>>> print my_a
+(['hari', 'Django'], ['ravi', 'python'], ['john', 'chef'])
+
+>>> my_a[0]
+['hari', 'Django']
+
+>>> my_a[0] = ['HARISH','DJANGO']
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+
+>>> my_a[0][0] = "HARISH"
+>>> my_a[0][1] = "DJANGO"
+
+>>> print my_a
+(['HARISH', 'DJANGO'], ['ravi', 'python'], ['john', 'chef'])
+
+------------------
+Converting tuple to list and vice versa
+
+>>> my_tuple = ('one','two','three','four','five')
+>>> my_list = list(my_tuple)
+>>> print my_list
+['one', 'two', 'three', 'four', 'five']
+>>> my_tuple_1 = tuple(my_list)
+>>> print my_tuple_1
+('one', 'two', 'three', 'four', 'five')
+
+------------------
+Methods in tuple. Only 2 methods available in tuple. 
+1. count()
+2. index()
+
+>>> gender = ('male','female')
+>>>
+>>> gender.count('female')
+1
+>>> gender.count('male')
+1
+>>> gender.index('male')
+0
+>>>
+
+
+
+========================================================================================================================================================================================================
+
+Dictionaries
+==============
+* Key should always unique
+* value need not be unique
+
+key ==> value pair
+
+['__class__', '__cmp__', '__contains__', '__delattr__', '__delitem__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'clear', 'copy', 'fromkeys', 'get', 'has_key', 'items', 'iteritems', 'iterkeys', 'itervalues', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values', 'viewitems', 'viewkeys', 'viewvalues']
+
+
+>>> my_alpha = {'a':'apple','b':'ball','c':'cat','e':'egg'}
+>>> print my_alpha, type(my_alpha)
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'egg'} <type 'dict'>  		==> the display is not order which we inserted. This is not really a matter because we are taking value always depend on key.
+
+>>> my_alpha['e']
+'egg'
+
+>>> my_empty = {}		==> we can create the empty dictionary this way
+>>> my_empty = dict()	==> we can create the empty dictionary this way also
+
+# use "pprint" module to print the dictionary the way it is inserted. 
+
+
+#insert
+--------
+>>> my_alpha = {'a':'apple','b':'ball','c':'cat','e':'egg'}
+>>> my_alpha['d'] = "dog"										==> If the key doesn't exist then the new key and value will be add
+>>>
+
+>>> my_alpha['f'] = ['fish','frog'] 		==> Adding list as value
+>>> print my_alpha
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'f': ['fish', 'frog']}
+
+>>> my_alpha['g'] = ('goat','grass')		==> Addiing tuple as value
+>>> print my_alpha
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': ('goat', 'grass'), 'f': ['fish', 'frog']}
+
+>>> my_alpha['h'] = {'h1':'horse','h2':'hen'}	==> Adding dictionary as value
+>>> print my_alpha
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': ('goat', 'grass'), 'f': ['fish', 'frog'], 'h': {'h2': 'hen', 'h1': 'horse'}}
+
+IMP : inserting None value and it's type is also NoneType
+
+>>> print my_alpha
+{'a': 'ant', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+
+>>> my_alpha['i'] = ""
+>>> print my_alpha
+{'a': 'ant', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'i': '', 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+
+>>> my_alpha['i'] = None
+>>> print my_alpha
+{'a': 'ant', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'i': None, 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+
+>>> print my_alpha['i']
+None
+
+>>> print type( my_alpha['i'] )
+<type 'NoneType'>
+
+
+
+get values
+------------
+>>> print my_alpha
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': ('goat', 'grass'), 'f': ['fish', 'frog'], 'h': {'h2': 'hen', 'h1': 'horse'}}
+
+>>> my_alpha['g'] = "goat"
+>>> print my_alpha
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'frog'], 'h': {'h2': 'hen', 'h1': 'horse'}}
+
+>>> print  my_alpha['f'][0]
+fish
+
+>>> print  my_alpha['f']
+['fish', 'frog']
+
+>>> print my_alpha['h']
+{'h2': 'hen', 'h1': 'horse'}
+
+>>> print my_alpha['h']['h2']
+hen
+
+
+
+Modify
+--------
+>>> print my_alpha
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'egg', 'd': 'dog'}
+>>>
+>>> my_alpha['e'] = "elephant"									==> If the key already exist then the value will modify.
+>>>
+>>> print my_alpha
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog'}
+
+
+
+>>> print my_alpha
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'frog'], 'h': {'h2': 'hen', 'h1': 'horse'}}
+
+>>> my_alpha['f'][1] = "FROG"		==> Changing the f's list value of 1st index.
+>>> print my_alpha
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'horse'}}
+
+>>> my_alpha['h']['h1'] = "HORSE"	==> changing the h's dictionaly value of h1 key.
+>>> print my_alpha
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+>>>
+
+
+
+"in" operator
+-------------
+>>> print my_alpha
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+>>> "h" in my_alpha		==> we can only do "in" operation on key only in dictionary not on values of keys
+True
+
+
+
+methods in dictionary
+=======================
+
+['__class__', '__cmp__', '__contains__', '__delattr__', '__delitem__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'clear', 'copy', 'fromkeys', 'get', 'has_key', 'items', 'iteritems', 'iterkeys', 'itervalues', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values', 'viewitems', 'viewkeys', 'viewvalues']
+
+
+clear()		==> removes all key and value from dictionary and makes the empty dictionary.
+-------
+>>> print my_alpha
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+>>>
+>>> my_alpha.clear()
+>>>
+>>> print my_alpha,type(my_alpha)
+{} <type 'dict'>
+>>>
+
+
+copy()
+-------
+>>> my_alpha = {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+
+>>> my_dup_alpha = my_alpha  			==> it will create the soft copy. Address space of both my_alpha and my_dup_alpha
+
+>>> print my_dup_alpha
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+
+>>> print id(my_alpha)
+12462176
+>>> print id(my_dup_alpha)
+12462176
+
+
+
+>>> my_alpha_copy_dup = my_alpha.copy()   		==> This will create the shallow copy. which the addess space is different of my_alpha and my_alpha_copy_dup
+>>>
+>>> print my_alpha_copy_dup
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+>>>
+>>> print id(my_alpha)
+12462176
+>>> print id(my_alpha_copy_dup)
+12910896
+>>>
+
+
+:::::::::::::::::::SHALLOW COPY::::::::::::::::::
+>>> my_a = [[1,2],[3,4],[5,6]]
+>>>
+>>> import copy
+>>>
+>>> my_b = copy.copy(my_a)
+>>>
+>>> print id(my_a),id(my_a[0]),id(my_a[1]),id(my_a[2])
+140189655017952 140189655017448 140189655016728 140189655017304
+>>>
+>>> print id(my_b),id(my_b[0]),id(my_b[1]),id(my_b[2])
+140189655673384 140189655017448 140189655016728 140189655017304
+>>>
+
+==> id(my_a) and id(my_b) is differnt address. But elemets in both objects are same address and still linked. 
+
+IMP : Interview questions : what is the use of soft, deep, shallow copies
+
+
+
+get()		==>To get the value of the key it is same like my_alpha['h']
+======
+>>> my_alpha = {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+>>> print my_alpha
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+
+>>> my_alpha.get('h')
+{'h2': 'hen', 'h1': 'HORSE'}
+>>> my_alpha.get('f')
+['fish', 'FROG']
+>>> my_alpha.get('g')
+'goat'
+>>>
+
+
+
+has_key()  ==> Checks the key exist or not in dictionary 
+---------
+>>> print my_alpha
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+
+>>> my_alpha.has_key('a')
+True
+>>> my_alpha.has_key('z')
+False
+
+
+
+setdefault()  ==> This method is for inserting key and value like normal only but the major differce is if the key is alreay exist then the value will not modify. if the key not exist then it will inserted
+-------------
+IMP : Basically it will not overwrite the values if the key exist.
+
+>>> print my_alpha
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+
+>>> my_alpha.setdefault('h','Test')   ==> checks first if the h is exist or not. if not exist then it will inserted. if exist it will return existing values of key and modify will not happen.
+{'h2': 'hen', 'h1': 'HORSE'}
+>>> print my_alpha
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+
+
+
+>>> my_alpha['a'] = "ant"  ==> This will overwrite even key and value exist. To overcome this we willuse the setdefault() method to avoid to overwrite.
+>>> print my_alpha
+{'a': 'ant', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+
+
+update()	==> This will update or inset the new key and values in dictionary. Means if key exist then it will update the value and if not then it will add the key and values
+--------
+
+>>> my_alpha = {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'i': None, 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+>>> my_alpha.update({'a': 'ANT', 'k': 'king', 'j': 'jeep'})
+>>> print my_alpha
+{'a': 'ANT', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'i': None, 'h': {'h2': 'hen', 'h1': 'HORSE'}, 'k': 'king', 'j': 'jeep'}
+
+Here a's value is updated and k an j is added with values.
+
+
+
+fromkeys()		==> Takes only keys and apply value for all keys in new dictionary.
+----------
+>>> my_alpha
+{'a': 'ANT', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'i': None, 'h': {'h2': 'hen', 'h1': 'HORSE'}, 'k': 'king', 'j': 'jeep'}
+
+>>> test = dict.fromkeys(my_alpha,'Temp_value')   ==> "dict" is object
+>>> print test
+{'a': 'Temp_value', 'c': 'Temp_value', 'b': 'Temp_value', 'e': 'Temp_value', 'd': 'Temp_value', 'g': 'Temp_value', 'f': 'Temp_value', 'i': 'Temp_value', 'h': 'Temp_value', 'k': 'Temp_value', 'j': 'Temp_value'}
+
+
+items()
+=======
+>>> my_a.items()
+[('a', 'apple'), ('c', 'cat'), ('b', 'ball'), ('e', 'elephant'), ('d', 'dog'), ('g', 'goat'), ('f', ['fish', 'FROG']), ('h', {'h2': 'hen', 'h1': 'HORSE'})]
+
+>>> print my_a.items(),type(my_a.items())
+[('a', 'apple'), ('c', 'cat'), ('b', 'ball'), ('e', 'elephant'), ('d', 'dog'), ('g', 'goat'), ('f', ['fish', 'FROG']), ('h', {'h2': 'hen', 'h1': 'HORSE'})] <type 'list'>
+
+
+keys()
+=======
+>>> print my_a.keys(),type(my_a.keys())
+['a', 'c', 'b', 'e', 'd', 'g', 'f', 'h'] <type 'list'>
+>>>
+
+
+values()
+=========
+>>> print my_a.values(),type(my_a.values())
+['apple', 'cat', 'ball', 'elephant', 'dog', 'goat', ['fish', 'FROG'], {'h2': 'hen', 'h1': 'HORSE'}] <type 'list'>
+>>>
+
+
+viewitems()
+===========
+>>> print my_a.viewitems(), type(my_a.viewitems())
+dict_items([('a', 'apple'), ('c', 'cat'), ('b', 'ball'), ('e', 'elephant'), ('d', 'dog'), ('g', 'goat'), ('f', ['fish', 'FROG']), ('h', {'h2': 'hen', 'h1': 'HORSE'})]) <type 'dict_items'>
+>>>
+
+viewkeys()
+==========
+>>> print my_a.viewkeys(),type(my_a.viewkeys())
+dict_keys(['a', 'c', 'b', 'e', 'd', 'g', 'f', 'h']) <type 'dict_keys'>
+>>>
+
+viewvalues()
+============
+>>> print my_a.viewvalues(),type(my_a.viewvalues())
+dict_values(['apple', 'cat', 'ball', 'elephant', 'dog', 'goat', ['fish', 'FROG'], {'h2': 'hen', 'h1': 'HORSE'}]) <type 'dict_values'>
+>>>
+
+
+iteritems()
+============
+>>> my_a = {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+>>>
+>>> print my_a.iteritems()
+<dictionary-itemiterator object at 0x7f8072997f70>
+>>>
+>>> for item in my_a.iteritems():
+...   print item
+...
+('a', 'apple')
+('c', 'cat')
+('b', 'ball')
+('e', 'elephant')
+('d', 'dog')
+('g', 'goat')
+('f', ['fish', 'FROG'])
+('h', {'h2': 'hen', 'h1': 'HORSE'})
+>>>
+
+
+iterkeys()
+============
+>>> print my_a
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+>>>
+>>> print my_a.iterkeys()
+<dictionary-keyiterator object at 0x7f8072997f70>
+>>>
+>>> for key in my_a.iterkeys():
+...   print key
+...
+a
+c
+b
+e
+d
+g
+f
+h
+>>>
+
+
+itervalues()
+============
+>>> print my_a
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+>>>
+>>> print my_a.itervalues()
+<dictionary-valueiterator object at 0x7f8072997f70>
+>>>
+>>> for value in my_a.itervalues():
+...   print value
+...
+apple
+cat
+ball
+elephant
+dog
+goat
+['fish', 'FROG']
+{'h2': 'hen', 'h1': 'HORSE'}
+>>>
+
+
+
+pop()
+======
+
+>>> print my_a
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+>>>
+>>> my_a.pop('f')
+['fish', 'FROG']
+>>>
+>>>
+>>> print my_a
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+>>>
+
+>>> my_a.pop('f')   ==> if we try the key which is not exist then "KeyError" Exception throws
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'f'
+>>>
+
+
+popitem()		==> randomly removes the key and value pair it own. Basically No control with user which item need to remove. python will decide that. we don't know which item(key, value) will remove.
+============
+>>> print my_a
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+>>>
+>>> my_a.popitem()
+('a', 'apple')
+>>> print my_a
+{'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+
+>>> my_a.popitem()
+('c', 'cat')
+>>> print my_a
+{'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+
+>>> my_a.popitem()
+('b', 'ball')
+>>> print my_a
+{'e': 'elephant', 'd': 'dog', 'g': 'goat', 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+
+>>> my_a.popitem()
+('e', 'elephant')
+>>> print my_a
+{'d': 'dog', 'g': 'goat', 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+
+>>> my_a.popitem()
+('d', 'dog')
+>>> print my_a
+{'g': 'goat', 'h': {'h2': 'hen', 'h1': 'HORSE'}}
+
+>>> my_a.popitem()
+('g', 'goat')
+>>> print my_a
+{'h': {'h2': 'hen', 'h1': 'HORSE'}}
+
+>>> my_a.popitem()
+('h', {'h2': 'hen', 'h1': 'HORSE'})
+>>> print my_a
+{}
+
+>>> my_a.popitem()							==> if we run the popitem() on empty dictionary. this will throw the "KeyError" exception.
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'popitem(): dictionary is empty'
+>>>
+
+
+
+
+========================================================================================================================================================================================================
+
+Functions : 
+============
+* Function is block of code
+* Function is for re-usability and avoid repetative stuff
+
+
+>>> def my_func():
+...   print "Hello World!!!"
+...
+>>> print my_func()
+Hello World!!!
+None 						==> Return value
+>>>
+
+IMP : Every function has a return value and if you have no return value we usually get a "None". Return marks the end of the function.
+
+
+>>> def my_func():
+...   return "Hello world"
+...
+>>> print my_func()
+Hello world                    ==> There is no None value.
+>>>
+
+
+
+>>> def my_func():
+...   return "Hello python"
+...   print "This is line1"
+...   print "This is line2"
+...
+>>> print my_func()
+Hello python 					
+>>>
+
+After return no line will be executed. when the function encounter the return it will understand this is the time to go out from function. Control will not stay there.
+"return" value states that please take the control from the function to the main program.
+
+
+
+
+
+namespace / local variable / global variables :
+==========================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
