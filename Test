@@ -1,3 +1,1685 @@
+PYTHON : 2.7
+
+================================================================================================================================================================
+https://www.python.org
+================================================================================================================================================================
+#! = sha-bang
+================================================================================================================================================================
+print  - keyword in python-2    ==> print "Test"
+       - function in python-3   ==> print ("Test")
+
+#!/usr/bin/python  ==> Use #!/usr/bin/env python   ( automatically pick the enviornment variable for python2 version )
+                       Use #!/usr/bin/env python3  ( automatically pick the enviornment variable for python3 version )
+
+================================================================================================================================================================
+
+#!/usr/bin/env python
+Author : <name>
+Date : <date>
+Usage : <programe for what>
+Logs : <date> - <project name> - <Modification details>
+================================================================================================================================================================
+
+help()
+    - keywords
+    - modules
+    - topics
+
+http://docs.python.org/2.7/tutorial/
+- For python documentation creation "Sphinx" Tool is used.
+
+
+IMP ==>    help('string')  ==> pass some sting to get help directly.string may any module/keyword/topics  Example : help('if') , help('cgi'), help('TUPLES')
+
+
+help> keywords
+
+Here is a list of the Python keywords.  Enter any keyword to get more help.
+
+and                 elif                if                  print
+as                  else                import              raise
+assert              except              in                  return
+break               exec                is                  try
+class               finally             lambda              while
+continue            for                 not                 with
+def                 from                or                  yield
+del                 global              pass
+
+
+
+help> topics
+
+Here is a list of available topics.  Enter any topic name to get more help.
+
+ASSERTION           DEBUGGING           LITERALS            SEQUENCEMETHODS2
+ASSIGNMENT          DELETION            LOOPING             SEQUENCES
+ATTRIBUTEMETHODS    DICTIONARIES        MAPPINGMETHODS      SHIFTING
+ATTRIBUTES          DICTIONARYLITERALS  MAPPINGS            SLICINGS
+AUGMENTEDASSIGNMENT DYNAMICFEATURES     METHODS             SPECIALATTRIBUTES
+BACKQUOTES          ELLIPSIS            MODULES             SPECIALIDENTIFIERS
+BASICMETHODS        EXCEPTIONS          NAMESPACES          SPECIALMETHODS
+BINARY              EXECUTION           NONE                STRINGMETHODS
+BITWISE             EXPRESSIONS         NUMBERMETHODS       STRINGS
+BOOLEAN             FILES               NUMBERS             SUBSCRIPTS
+CALLABLEMETHODS     FLOAT               OBJECTS             TRACEBACKS
+CALLS               FORMATTING          OPERATORS           TRUTHVALUE
+CLASSES             FRAMEOBJECTS        PACKAGES            TUPLELITERALS
+CODEOBJECTS         FRAMES              POWER               TUPLES
+COERCIONS           FUNCTIONS           PRECEDENCE          TYPEOBJECTS
+COMPARISON          IDENTIFIERS         PRINTING            TYPES
+COMPLEX             IMPORTING           PRIVATENAMES        UNARY
+CONDITIONAL         INTEGER             RETURNING           UNICODE
+CONTEXTMANAGERS     LISTLITERALS        SCOPING
+CONVERSIONS         LISTS               SEQUENCEMETHODS1
+
+
+
+help> modules
+
+Please wait a moment while I gather a list of all available modules...
+
+ANSI                cgitb               iwlib               rfc822
+BaseHTTPServer      chardet             ixf86config         rlcompleter
+Bastion             chunk               jmespath            rmagic
+CDROM               cmath               json                robotparser
+CGIHTTPServer       cmd                 kerberos            rpm
+CORBA               code                keyczar             rpmUtils
+ConfigParser        codecs              keyword             runpy
+Cookie              codeop              krbV                scanext
+Crypto              collections         ldap                scdate
+DLFCN               colorsys            ldapurl             sched
+DocXMLRPCServer     commands            ldif                sckdump
+FSM                 compileall          lib2to3             screen
+HTMLParser          compiler            libproxy            scservices
+IN                  contextlib          libsvn              select
+IPython             cookielib           libuser             selinux
+MimeWriter          copy                libxml2             sets
+ORBit               copy_reg            libxml2mod          setuptools
+OpenSSL             cracklib            linecache           sgmllib
+PortableServer      crypt               linuxaudiodev       sha
+PyQt4               csv                 locale              shelve
+Queue               ctypes              logging             shlex
+SSSDConfig          cups                lxml                shutil
+SimpleHTTPServer    cupsext             macpath             signal
+SimpleXMLRPCServer  cupshelpers         macurl2path         simplegeneric
+SocketServer        curl                mailbox             simplejson
+StringIO            curses              mailcap             sip
+TYPES               cythonmagic         mako                sipconfig
+UserDict            datetime            markupbase          sipdistutils
+UserList            dateutil            markupsafe          site
+UserString          dbhash              marshal             six
+_LWPCookieJar       dbm                 math                slip
+_MozillaCookieJar   dbus                matplotlib          smbc
+__builtin__         dbus_bindings       md5                 smtpd
+__future__          decimal             meh                 smtplib
+_abcoll             decorator           mglob               snack
+_anthy              default_encoding_utf8 mhlib               sndhdr
+_ast                difflib             mimetools           socket
+_bisect             dircache            mimetypes           sos
+_bsddb              dis                 mimify              spwd
+_bytesio            distutils           mmap                sqlite3
+_codecs             dl                  modulefinder        sqlitecachec
+_codecs_cn          dmidecode           mpl_toolkits        sre
+_codecs_hk          dmidecodemod        multifile           sre_compile
+_codecs_iso2022     doctest             multiprocessing     sre_constants
+_codecs_jp          drv_libxml2         mutex               sre_parse
+_codecs_kr          dsextras            netaddr             ssl
+_codecs_tw          dsml                netrc               stat
+_collections        dumbdbm             new                 statvfs
+_cracklib           dummy_thread        nis                 storemagic
+_crypt              dummy_threading     nntplib             string
+_csv                easy_install        nose                stringold
+_ctypes             egg                 nss                 stringprep
+_curses             email               ntpath              strop
+_curses_panel       encodings           nturl2path          struct
+_dbus_bindings      errno               numbers             subprocess
+_dbus_glib_bindings ethtool             numpy               sunau
+_elementtree        exceptions          octavemagic         sunaudio
+_fileio             fcntl               opcode              svn
+_functools          fdpexpect           operator            symbol
+_gamin              filecmp             optparse            sympyprinting
+_hashlib            fileinput           orca                symtable
+_heapq              firstboot           ordereddict         sys
+_hotshot            fnmatch             os                  syslog
+_json               formatter           os2emxpath          system_config_keyboard
+_ldap               fpformat            ossaudiodev         tabnanny
+_locale             fractions           packagekit          talloc
+_lsprof             ftplib              pango               tarfile
+_multibytecodec     functools           pangocairo          telnetlib
+_multiprocessing    future_builtins     parallelmagic       tempfile
+_random             gamin               paramiko            termios
+_snack              gc                  parser              test
+_socket             gconf               pcardext            textwrap
+_sqlite3            gdbm                pdb                 this
+_sqlitecache        genericpath         pexpect             thread
+_sre                getopt              pickle              threading
+_ssl                getpass             pickletools         time
+_strptime           gettext             pip                 timeit
+_struct             gio                 pipes               timing
+_symtable           glib                pipestat            toaiff
+_threading_local    glob                pkg_resources       token
+_warnings           gmenu               pkgutil             tokenize
+_weakref            gnome               platform            tornado
+_yaml               gnomeapplet         plistlib            trace
+abc                 gnomecanvas         popen2              traceback
+abrt_exception_handler gnomekeyring        poplib              tty
+acutil              gnomevfs            posix               types
+aifc                gobject             posixfile           unicodedata
+ansible             gpgme               posixpath           unittest
+anthy               grp                 pprint              urlgrabber
+anydbm              gst                 problem             urllib
+argparse            gstoption           profile             urllib2
+array               gtk                 pstats              urllib3
+ast                 gtksourceview2      pty                 urlparse
+asynchat            gtkunixprint        pwd                 user
+asyncore            gzip                pxssh               uu
+atexit              hashlib             py_compile          uuid
+atk                 heapq               pyasn1              vte
+audiodev            hmac                pyatspi             warnings
+audioop             hotshot             pyclbr              wave
+autoreload          hpmudext            pycurl              weakref
+babel               htmlentitydefs      pydoc               webbrowser
+backports           htmllib             pydoc_topics        webkit
+base64              httplib             pyexpat             whichdb
+bdb                 httplib2            pygments            wnck
+beaker              ibus                pygst               wsgiref
+binascii            idlelib             pygtk               xdg
+binhex              idna                pyhbac              xdrlib
+bisect              ihooks              pylab               xf86config
+bonobo              imageop             pynotify            xml
+bpdb                imaplib             pysss_murmur        xmllib
+bpython             imghdr              pytz                xmlrpclib
+bsddb               imp                 quopri              xxsubtype
+bz2                 imputil             random              yaml
+cPickle             iniparse            re                  yum
+cProfile            inspect             readline            yumutils
+cStringIO           invest              report              zipfile
+cairo               io                  reportclient        zipimport
+calendar            ipaclient           repr                zlib
+cas                 ipalib              requests            zmq
+certifi             ipapython           resource
+cgi                 itertools           rexec
+
+Enter any module name to get more help.  Or, type "modules spam" to search
+for modules whose descriptions contain the word "spam".
+
+help>
+================================================================================================================================================================
+
+"ipython" is the Advanced Interpertor
+-----------
+
+[root@server1 ~]# ipython
+Python 2.6.6 (r266:84292, Aug 18 2016, 15:13:37)
+Type "copyright", "credits" or "license" for more information.
+
+IPython 0.13.2 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+In [1]:
+================================================================================================================================================================
+
+Display type of object  ==> Python will automatically uderstand the object type. So No need to tell what type of object is to python.
+-----------------------
+
+In [1]: my_string = "python"
+
+In [2]: print my_string, type(my_string)
+python <type 'str'>   
+
+In [3]: int_num = 5
+
+In [4]: print type(int_num)
+<type 'int'>
+
+In [5]: float_num = 7.9
+
+In [6]: print type(float_num)
+<type 'float'>
+
+================================================================================================================================================================
+
+In "ipython" interpreter we can see all methods and variables using tab after entering the object type and then "." then tab key like below
+
+In [7]: my_string.
+my_string.capitalize  my_string.islower     my_string.rpartition
+my_string.center      my_string.isspace     my_string.rsplit
+my_string.count       my_string.istitle     my_string.rstrip
+my_string.decode      my_string.isupper     my_string.split
+my_string.encode      my_string.join        my_string.splitlines
+my_string.endswith    my_string.ljust       my_string.startswith
+my_string.expandtabs  my_string.lower       my_string.strip
+my_string.find        my_string.lstrip      my_string.swapcase
+my_string.format      my_string.partition   my_string.title
+my_string.index       my_string.replace     my_string.translate
+my_string.isalnum     my_string.rfind       my_string.upper
+my_string.isalpha     my_string.rindex      my_string.zfill
+my_string.isdigit     my_string.rjust
+
+In [8]: my_string._
+my_string.__add__                      my_string.__getitem__                  my_string.__mod__                      my_string.__setattr__
+my_string.__class__                    my_string.__getnewargs__               my_string.__mul__                      my_string.__sizeof__
+my_string.__contains__                 my_string.__getslice__                 my_string.__ne__                       my_string.__str__
+my_string.__delattr__                  my_string.__gt__                       my_string.__new__                      my_string.__subclasshook__
+my_string.__doc__                      my_string.__hash__                     my_string.__reduce__                   my_string._formatter_field_name_split
+my_string.__eq__                       my_string.__init__                     my_string.__reduce_ex__                my_string._formatter_parser
+my_string.__format__                   my_string.__le__                       my_string.__repr__
+my_string.__ge__                       my_string.__len__                      my_string.__rmod__
+my_string.__getattribute__             my_string.__lt__                       my_string.__rmul__
+
+In [8]: my_string._
+
+==> variables or methods starts and ends with __ is called magic methods and magic variables
+
+
+For normal python interpreter use dir() method to check all methods and variables at once like below
+
+>>> my_string = "python"
+>>>
+>>> dir(my_string)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>>
+
+
+To get all methods and variables in list.
+-------------------------------------------
+>>> print dir(my_string)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>>
+
+
+Print methods and variable of list type in below format
+--------------------------------------------------------
+>>> for i in dir(my_string):
+...   print i
+...
+__add__
+__class__
+__contains__
+__delattr__
+__doc__
+__eq__
+__format__
+__ge__
+__getattribute__
+__getitem__
+__getnewargs__
+__getslice__
+__gt__
+__hash__
+__init__
+__le__
+__len__
+__lt__
+__mod__
+__mul__
+__ne__
+__new__
+__reduce__
+__reduce_ex__
+__repr__
+__rmod__
+__rmul__
+__setattr__
+__sizeof__
+__str__
+__subclasshook__
+_formatter_field_name_split
+_formatter_parser
+capitalize
+center
+count
+decode
+encode
+endswith
+expandtabs
+find
+format
+index
+isalnum
+isalpha
+isdigit
+islower
+isspace
+istitle
+isupper
+join
+ljust
+lower
+lstrip
+partition
+replace
+rfind
+rindex
+rjust
+rpartition
+rsplit
+rstrip
+split
+splitlines
+startswith
+strip
+swapcase
+title
+translate
+upper
+zfill
+>>>
+
+
+Display dir(my_string) object type as list
+-----------------------------------------------
+>>> print type(dir(my_string))
+<type 'list'>
+>>>
+
+
+================================================================================================================================================================
+
+In "ipython" get help of methods like below
+
+
+In [1]: my_string = "python"
+
+In [2]: my_string.
+my_string.capitalize  my_string.islower     my_string.rpartition
+my_string.center      my_string.isspace     my_string.rsplit
+my_string.count       my_string.istitle     my_string.rstrip
+my_string.decode      my_string.isupper     my_string.split
+my_string.encode      my_string.join        my_string.splitlines
+my_string.endswith    my_string.ljust       my_string.startswith
+my_string.expandtabs  my_string.lower       my_string.strip
+my_string.find        my_string.lstrip      my_string.swapcase
+my_string.format      my_string.partition   my_string.title
+my_string.index       my_string.replace     my_string.translate
+my_string.isalnum     my_string.rfind       my_string.upper
+my_string.isalpha     my_string.rindex      my_string.zfill
+my_string.isdigit     my_string.rjust
+
+In [2]: my_string.upper?
+Type:       builtin_function_or_method
+String Form:<built-in method upper of str object at 0x7f0878a7bcf0>
+Docstring:
+S.upper() -> string
+
+Return a copy of the string S converted to uppercase.
+
+
+For Normal python interpreter use like below to get the method help
+
+IMP ==> help(my_string.upper)
+
+Help on built-in function upper:
+
+upper(...)
+    S.upper() -> string
+
+    Return a copy of the string S converted to uppercase.
+(END)
+
+
+================================================================================================================================================================
+Method for int and float object
+--------------------------------
+
+In [4]: intnum = 5
+
+In [5]: intnum.
+intnum.conjugate    intnum.imag         intnum.real
+intnum.denominator  intnum.numerator
+
+In [5]: floatnum = 7.9
+
+In [6]: floatnum.
+floatnum.as_integer_ratio  floatnum.imag
+floatnum.conjugate         floatnum.is_integer
+floatnum.fromhex           floatnum.real
+floatnum.hex
+
+In [6]: floatnum.
+
+================================================================================================================================================================
+
+                                                                        *** VARIABLES ***
+
+Playing with strings
+--------------------
+
+my_string = "python"
+
+ p   y   t   h   o   n
+ 0   1   2   3   4   5  ==> +ve index or left to right
+-6  -5  -4  -3  -2  -1  ==> -ve index or right to left
+
+===========
+Task - 1
+===========
+
+In [1]: my_string = "python"
+
+In [2]: my_string[2]
+Out[2]: 't'
+
+In [4]: my_string[-4]
+Out[4]: 't'
+
+
+IMP ==> we can't change the character and if you try that you will get the below error. But you can change whole sting of my_string object
+
+In [6]: my_string[2] = 'T'
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-6-50ea1f4c0009> in <module>()
+----> 1 my_string[2] = 'T'
+
+TypeError: 'str' object does not support item assignment
+
+In [7]:
+
+
+slicing
+---------
+In [8]: my_string
+Out[8]: 'python'
+
+In [9]: my_string[0:3]  # 3 is not included
+Out[9]: 'pyt'
+
+In [10]: my_string[:3]
+Out[10]: 'pyt'
+
+In [11]: my_string[3:6] 
+Out[11]: 'hon'
+
+In [12]: my_string[3:]
+Out[12]: 'hon'
+
+
+Contactination
+--------------
+In [13]: my_string_1 = "Test"
+
+In [14]: my_string_2 = "Line"
+
+In [15]: my_string_1 + my_string_2
+Out[15]: 'TestLine'
+
+In [16]: my_string_1 +" " + my_string_2
+Out[16]: 'Test Line'
+
+
+Multiplication
+---------------
+In [17]: print my_string
+python
+
+In [18]: my_string * 5
+Out[18]: 'pythonpythonpythonpythonpython'
+
+
+In [19]: "Harish" * 5
+Out[19]: 'HarishHarishHarishHarishHarish'
+
+
+===========
+Task-2
+===========
+In [2]: my_string = "python"
+
+In [3]: #Need output like Tython
+
+In [4]: "T" + my_string[1:]
+Out[4]: 'Tython'
+
+In [6]: my_string[2].upper() + my_string[1:]
+Out[6]: 'Tython'
+
+In [7]: my_string.replace?
+Type:       builtin_function_or_method
+String Form:<built-in method replace of str object at 0x7fe043dbbcf0>
+Docstring:
+S.replace(old, new[, count]) -> string
+
+Return a copy of string S with all occurrences of substring
+old replaced by new.  If the optional argument count is
+given, only the first count occurrences are replaced.
+
+In [8]:
+
+In [8]: my_string.replace('p','T')   <== This will not replace the original data in my_string
+Out[8]: 'Tython'
+
+In [9]:
+
+
+Stepping the characters (positive indexing and negitive index)
+----------------------------
+In [2]: my_string = "python"
+
+In [3]: my_string[:]
+Out[3]: 'python'
+
+positive :
+----------
+In [4]: my_string[::1]   ==> one character stepping at once
+Out[4]: 'python'
+
+In [5]: my_string[::2]   ==> Two characters stepping at once
+Out[5]: 'pto'
+
+In [6]: my_string[::3]   ==> Three characters stepping at once
+Out[6]: 'ph'
+
+In [7]: my_string[1::2]  ==> 2 character stepping at once which starts the 1st index(it means starts with y index that is one)
+Out[7]: 'yhn'
+
+In [8]: my_string[2::2]  ==> 2 characters stepping at once which start with 2nd index(it means starts with t index that is two)
+Out[8]: 'to'
+
+
+Negitive :
+----------
+
+In [9]: my_string[::-1]     ==> IMP : Reverse the entire string 
+Out[9]: 'nohtyp'
+
+
+
+
+
+
+Playing with Numbers
+-----------------------
+In [12]: 1 +1
+Out[12]: 2
+
+In [13]: 25 * 25
+Out[13]: 625
+
+In [14]: 2 ** 3     ==> IMP: 2 to the Power of 3
+Out[14]: 8
+
+In [16]: pow(2,3)   ==> same 2 to the power of 3 but this is using function way of writing
+Out[16]: 8
+
+In [17]: 5/2        ==> if you want only number 2 with no decimal even answer is 2.5. Here is int object output
+Out[17]: 2
+
+In [18]: 5/2.0      ==> any number with numerator or denominator with decimal that is flot the out will be float object output
+Out[18]: 2.5
+
+In [19]: 5.0/2
+Out[19]: 2.5
+
+
+
+Type casting : 
+----------------
+In [21]: float(5)
+Out[21]: 5.0
+
+In [22]: int(5.0)
+Out[22]: 5
+
+In [23]: str(1) + str(5)
+Out[23]: '15'
+
+
+***  BODMAS  ****
+
+Examples :
+-------------
+In [25]: 25 + 25 /2
+Out[25]: 37
+
+In [26]: float(25 + 25 /2)
+Out[26]: 37.0
+
+In [27]: float(25 + 25 /2.0)
+Out[27]: 37.5
+
+In [28]: 25 + 25 /2.0
+Out[28]: 37.5
+
+
+Python challenge : http://www.pythonchallenge.com/
+
+
+
+Math module
+---------------
+In [30]: import math
+
+In [31]: math.
+math.acos       math.cosh       math.hypot      math.radians
+math.acosh      math.degrees    math.isinf      math.sin
+math.asin       math.e          math.isnan      math.sinh
+math.asinh      math.exp        math.ldexp      math.sqrt
+math.atan       math.fabs       math.log        math.tan
+math.atan2      math.factorial  math.log10      math.tanh
+math.atanh      math.floor      math.log1p      math.trunc
+math.ceil       math.fmod       math.modf
+math.copysign   math.frexp      math.pi
+math.cos        math.fsum       math.pow
+
+In [31]: math.pow?
+Type:       builtin_function_or_method
+String Form:<built-in function pow>
+Docstring:
+pow(x, y)
+
+Return x**y (x to the power of y).
+
+In [32]: math.pow(2,3)
+Out[32]: 8.0
+
+In [33]:
+
+================================================================================================================================================================
+
+printing
+---------
+In [1]: my_school = "creascent"
+
+In [2]: another_school = "vidyanikethan"
+
+In [3]: town = "township"
+
+In [4]: beach = "blue"
+
+In [5]: commute = "bus"
+
+Type-1
+------
+
+In [7]: print "my school name is", my_school
+my school name is creascent
+
+In [8]: print "my school name is", my_school , "we had another school", another_school, "we used to live", town , "we have a beach which has color" , beach , "we used to commute on" ,  commute
+output : 
+my school name is creascent we had another school vidyanikethan we used to live township we have a beach which has color blue we used to commute on bus
+
+
+Type -2 (Type casting)
+-----------------------
+int = %d
+float = %f
+string = %s
+raw = %r
+
+In [9]: print "my school name is %s. We had another school %s. We used to live %s. We have ac beach witch has color %s. We used to commute on %s." %(my_school, another_school, town, beach, commute)
+output : 
+my school name is creascent. We had another school vidyanikethan. We used to live township. We have ac beach witch has color blue. We used to commute on bus.
+
+
+(Cons)
+------- 
+In [11]: print "I Love my %s. My school name is %s." %(my_school, my_school)
+output : 
+I Love my creascent. My school name is creascent.
+
+
+format
+-------
+In [19]: print "I live my {0}. My school name is {0}".format(my_school,another_school)          ==> using index
+I live my creascent. My school name is creascent
+
+In [20]: print "I live my {0}. My school name is {1}".format(my_school,another_school)
+I live my creascent. My school name is vidyanikethan
+
+In [21]: print "I live my {ms}. My school name is {ms}".format(ms=my_school,ans=another_school)     ==> using variables
+I live my creascent. My school name is creascent
+
+
+
+================================================================================================================================================================
+
+input and raw_input
+--------------------
+raw_input   ==> only on python-2.x and removed in python-3.x
+---------
+In [22]: name = raw_input("Please enter you name:")
+Please enter you name:Harish
+
+In [23]: print name,type(name)
+Harish <type 'str'>
+
+In [24]: name = raw_input("Please enter you name:")     ==> raw_input always understand or convert into string which we entered
+Please enter you name:59
+
+In [25]: print name,type(name)
+59 <type 'str'>
+
+==> Then for type casting to convert
+
+In [26]: name = int(raw_input("Please enter you name:"))
+Please enter you name:56
+
+In [27]: print name, type(name)
+56 <type 'int'>
+
+
+input   ==> both in 2.x and 3.x , input method understand the object type without type casting
+------
+In [2]: num = input("Enter the Value:")
+Enter the Value:10
+
+In [3]: print num,type(num)
+10 <type 'int'>
+
+In [4]:
+
+In [4]: num = input("Enter the Value:")
+Enter the Value:"Harish"
+
+In [5]: print num,type(num)
+Harish <type 'str'>
+
+In [6]:
+
+In [6]: num = input("Enter the Value:")
+Enter the Value:5.0
+
+In [7]: print num,type(num)
+5.0 <type 'float'>
+
+In [8]:
+
+
+================================================================================================================================================================
+
+Flow Control
+---------------
+In [8]: 2>5
+Out[8]: False
+
+In [9]: 2<5
+Out[9]: True
+
+In [10]: print type(True),type(False)
+<type 'bool'> <type 'bool'>
+
+In [12]: print 2>5,type(2>5)
+False <type 'bool'>
+
+
+references :
+
+PEP = Python Enhancement Proposals
+
+https://www.python.org/dev/peps/pep-0008/
+https://www.youtube.com/watch?v=wf-BqAjZb8M
+
+
+For auto intendation in vim editor
+------------------------------------
+Create the .vimrc file in home dirctor and add the below content
+
+set nu
+set tabstop=4
+set expandtab
+set autoindent
+syntax on
+
+
+ if elif else 
+ --------------
+ #!/usr/bin/env python
+
+print "Welcome to the market"
+food_type = raw_input("Enter the food type - fish/meat/chicket/Veg:")
+
+if food_type == 'fish':
+    pass
+elif food_type == 'meat':
+    pass
+elif food_type == 'chicken':
+    pass
+elif food_type == 'Veg':
+    pass
+    print "Test"
+else:
+    pass
+
+IMP : Pass is block filler. If you add any coder after pass statement those will be execute. 
+
+Execution of above program.
+
+[root@server1 python_programs]# python market.py
+Welcome to the market
+Enter the food type - fish/meat/chicket/Veg:Veg
+Test
+[root@server1 python_programs]#
+
+
+Logical operators in Python
+--------------------------------
+Operator    Meaning                                                 Example
+and         True if both the operands are true                      x and y
+or          True if either of the operands is true                  x or y
+not         True if operand is false (complements the operand)      not x
+
+
+or operator
+------------
+#!/usr/bin/env python
+
+print "Welcome to the market"
+food_type = raw_input("Enter the food type - fish/meat/chicket/Veg:")
+
+if food_type == 'fish':
+    print "Welcome to Fish Market."
+    fish_type = raw_input("Please enter the fish type:")
+    if fish_type == "TUNA" or fish_type =="tuna":
+        print "We have a fish type - {0}".format(fish_type)
+    elif fish_type == "solomon" or fish_type == "SOLOMON":
+        print "We have a fish type - {0}".format(fish_type)
+    elif fish_type =="rohu" or fish_type == "ROHU":
+        print "We have a fish type - {0}".format(fish_type)
+    else:
+        print "We don't have a fish type - {0}".format(fish_type)
+        print "How about meat/chicket/Veg"
+elif food_type == 'meat':
+    pass
+elif food_type == 'chicken':
+    pass
+elif food_type == 'Veg':
+    pass
+    print "Test"
+else:
+    pass
+
+
+and operator
+-------------
+#!/usr/bin/env python
+
+print "This program checks the greater number between 3 numbers"
+n1 = input("Enter the first number:")
+n2 = input("Enter the second number:")
+n3 = input("Enter the third number:")
+
+if n1 > n2 and n1 > n3:
+    print "{0} is greater than {1} and {2}".format(n1,n2,n3)
+elif n2 > n1 and n2 > n3:
+    print "{1} is greater than {0} and {2}".format(n1,n2,n3)
+elif n3 > n1 and n3 > n2:
+    print "{2} is greater than {0} and {1}".format(n1,n2,n3)
+else:
+    print "All are equal"
+
+
+
+IMP:   '''  ==> Block commenting. actually we called Doc string. we will use in function and module programming
+
+example:
+'''
+askjdffladsdf
+asddflkjasdf
+'''
+
+
+================================================================================================================================================================
+
+for, while  ==> we have only for and while loops in python. No do..while, while..do, foreach like these types
+
+for     ==> Finite loops
+while   ==> Infinite loops
+
+IMP: "in" operator
+
+In [3]: for value in my_string:
+   ...:     print value
+   ...:
+p
+y
+t
+h
+o
+n
+
+IMP :
+
+()  ==> Tuple
+[]  ==> List
+{}  ==> dictionary
+
+
+In [12]: for value in ("one", "Two", "Three", "four", "five"):
+    print value
+   ....:
+one
+Two
+Three
+four
+five
+
+
+range
+---------
+
+In [13]: range?
+Type:       builtin_function_or_method
+String Form:<built-in function range>
+Namespace:  Python builtin
+Docstring:
+range([start,] stop[, step]) -> list of integers
+
+Return a list containing an arithmetic progression of integers.
+range(i, j) returns [i, i+1, i+2, ..., j-1]; start (!) defaults to 0.
+When step is given, it specifies the increment (or decrement).
+For example, range(4) returns [0, 1, 2, 3].  The end point is omitted!
+These are exactly the valid indices for a list of 4 elements.
+
+In [14]:
+
+In [14]: range(1,5)
+Out[14]: [1, 2, 3, 4]
+
+In [16]: for i in range(1,5):
+   ....:     print i
+   ....:
+1
+2
+3
+4
+
+
+In [17]: print range(1,5), type(range(1,5))
+[1, 2, 3, 4] <type 'list'>
+
+IMP :  range is an iterator
+
+iterator     ==> Iterator is having only one method that is "next()". we can get each value of the list once at a time when we call the iterator object with next() method.
+-------------
+
+In [27]: m = iter(range(1,6))
+
+In [28]: print m, type(m)
+<listiterator object at 0x2d8a610> <type 'listiterator'>
+
+In [29]: m.next?
+Type:       method-wrapper
+String Form:<method-wrapper 'next' of listiterator object at 0x2d8a610>
+Docstring:  x.next() -> the next value, or raise StopIteration
+
+In [30]: m.next()
+Out[30]: 1
+
+In [31]: m.next()
+Out[31]: 2
+
+In [32]: m.next()
+Out[32]: 3
+
+In [33]: m.next()
+Out[33]: 4
+ 
+In [34]: m.next()
+Out[34]: 5
+
+In [35]: m.next()
+---------------------------------------------------------------------------
+StopIteration                             Traceback (most recent call last)
+<ipython-input-35-e94cbac0601a> in <module>()
+----> 1 m.next()
+
+StopIteration:
+
+In [36]:
+
+
+iterators and generators
+---------------------------
+
+generator is intelegent than iterator. generator generates the values when we required that is ondemand based on range values and step. 
+Iterator creates the memory intially for values. But generator creates memory when we need the value and release memory after the function completes with that value.
+memory flooded can be overcome in generators
+
+
+range is a iterator
+xrange is generator
+
+
+In [36]: xrange?
+Type:       type
+String Form:<type 'xrange'>
+Namespace:  Python builtin
+Docstring:
+xrange([start,] stop[, step]) -> xrange object
+
+Like range(), but instead of returning a list, returns an object that
+generates the numbers in the range on demand.  For looping, this is
+slightly faster than range() and more memory efficient.
+
+
+
+
+================================================================================================================================================================
+
+while loop
+-----------
+While is always looks for True or any condition which give True
+break  ==> breaks the current loop
+sys.exit  ==>  Takes you out of program.
+continue : exclude / skip the iteration
+
+
+#!/usr/bin/env python
+
+number = 7
+test = True
+
+while test:
+    num = input("Please Guess the number:")
+    if num > number:
+        print "Buddy your number is slightly large"
+    elif num < number:
+        print "Buddy your number is slightly smaller"
+    elif num == number:
+        print "Buddy you guessed the correct number"
+        test = False                                                      ===> passing False is not the good standard
+
+print "Thanks for playing game"
+
+
+If we take the True directly in while condition then use like below
+
+
+
+#!/usr/bin/env python
+number = 7
+while Ture:
+    num = input("Please Guess the number:")
+    if num > number:
+        print "Buddy your number is slightly large"
+    elif num < number:
+        print "Buddy your number is slightly smaller"
+    elif num == number:
+        print "Buddy you guessed the correct number"
+        # test = False
+        break:                                                              ==> use break to break the current loop ( break not for conditions like if conditionfs)
+print "Thanks for playing game"
+
+
+
+sys.exit()
+----
+In [1]: import sys
+
+In [2]: sys.
+sys.api_version            sys.exc_info               sys.getdefaultencoding     sys.maxsize                sys.ps2                    sys.stdout
+sys.argv                   sys.exc_type               sys.getdlopenflags         sys.maxunicode             sys.ps3                    sys.subversion
+sys.builtin_module_names   sys.excepthook             sys.getfilesystemencoding  sys.meta_path              sys.py3kwarning            sys.version
+sys.byteorder              sys.exec_prefix            sys.getprofile             sys.modules                sys.setcheckinterval       sys.version_info
+sys.call_tracing           sys.executable             sys.getrecursionlimit      sys.path                   sys.setdlopenflags         sys.warnoptions
+sys.callstats              sys.exit                   sys.getrefcount            sys.path_hooks             sys.setprofile
+sys.copyright              sys.exitfunc               sys.getsizeof              sys.path_importer_cache    sys.setrecursionlimit
+sys.displayhook            sys.flags                  sys.gettrace               sys.platform               sys.settrace
+sys.dont_write_bytecode    sys.float_info             sys.hexversion             sys.prefix                 sys.stderr
+sys.exc_clear              sys.getcheckinterval       sys.maxint                 sys.ps1                    sys.stdin
+
+In [2]: sys.exit?
+Type:       builtin_function_or_method
+String Form:<built-in function exit>
+Docstring:
+exit([status])
+
+Exit the interpreter by raising SystemExit(status).
+If the status is omitted or None, it defaults to zero (i.e., success).
+If the status is numeric, it will be used as the system exit status.
+If it is another kind of object, it will be printed and the system
+exit status will be one (i.e., failure).
+
+
+
+ #!/usr/bin/env python
+# break : break will take me out of the loop
+# sys.exit : takes you out of the programe
+
+import sys
+
+answer = raw_input("Do you want to play the game:")
+if answer == "n" or answer == "N":
+    print "You are coming out of game"
+    sys.exit()
+
+number = 7
+# test = True
+
+while True:
+    num = input("Please Guess the number:")
+    if num > number:
+        print "Buddy your number is slightly large"
+    elif num < number:
+        print "Buddy your number is slightly smaller"
+    elif num == number:
+        print "Buddy you guessed the correct number"
+        # test = False
+        break
+
+print "Thanks for playing game"
+
+[root@server1 python_programs]# python whileloop.py
+Do you want to play the game:n
+You are coming out of game
+[root@server1 python_programs]# python whileloop.py
+Do you want to play the game:y
+Please Guess the number:5
+Buddy your number is slightly smaller
+Please Guess the number:9
+Buddy your number is slightly large
+Please Guess the number:7
+Buddy you guessed the correct number
+Thanks for playing game
+[root@server1 python_programs]#
+
+
+
+
+continue
+-----------
+In [4]: for numbers in ["One","Two","Three","Four","Five"]:
+   ...:     if numbers == "Three":
+   ...:         pass            ==> nothing will do. simply ignore the condition(if condition. pass is only for conditions)
+   ...:     print numbers
+   ...:
+One 
+Two
+Three
+Four
+Five
+
+In [5]: for numbers in ["One","Two","Three","Four","Five"]:
+    if numbers == "Three":
+        break
+    print numbers
+   ...:
+One
+Two                             ==> break stop the loop (stops the next loops and come out from loop)
+
+In [6]:
+
+In [6]: for numbers in ["One","Two","Three","Four","Five"]:
+    if numbers == "Three":
+        continue
+    print numbers
+   ...:
+One
+two                             ==> Continue skips the loop(not allow to execute next lines in program and continues the next loops) and starts the next line
+Four
+Five
+
+In [7]:
+
+
+
+
+Example program :
+
+Guess random number in 3 chances and asking for game play again
+-----------------------------------------------------------------
+#!/usr/bin/env python
+import random
+import sys
+
+answer = "You Want to play the game (y/n) :"
+
+while True:
+    answer = raw_input("You Want to play the game (y/n) : ")
+    if answer == "y" or answer == "Y":
+        random_number = random.randint(1,10)
+        print random_number
+        for i in range(0,3):
+            if i == 0:
+                print "This is your First guess"
+                guess = input("Please Enter the guess number between 1 to 9:")
+                if guess == random_number:
+                    print "Your Guess is correct buddy in first chance itself"
+                    break
+                else:
+                    print "You Missed first chance and try for second and third chance"
+            elif i == 1:
+                print "This is your Second guess"
+                guess = input("Please Enter the guess number between 1 to 9:")
+                if guess == random_number:
+                    print "your Guess is correct buddy in Second chance itsef"
+                    break
+                else:
+                    print "You Missed the Second chance Try for Last third chance"
+            else:
+                print "This is your Third and Last chance to guess"
+                guess = input("Please Enter the guess number between 1 to 9:")
+                if guess == random_number:
+                    print "Your Guess is correct buddy in third chance"
+                else:
+                    print "You Missed Last chance too. Better luck next time"
+    elif answer == "n" or answer =="N":
+        print "You are Coming out of Guess game"
+        sys.exit()
+    else:
+        print "you have not selected the correct option select y or n"
+
+
+================================================================================================================================================================
+
+Lists
+------
+collection of hetrogeneous collection of elements(strings, numbers, float)
+single dimenision
+Lists supports indexing
+
+
+Array
+------
+collection of homogenous collection of elements
+multi dimensional 
+
+numpy, pandas modules is for the deal array.
+
+https://scipy.org
+
+
+In [1]: my_fruits = ['apple','banana','cherry','dates']
+
+In [2]: print my_fruits, type(my_fruits)
+['apple', 'banana', 'cherry', 'dates'] <type 'list'>
+
+In [3]: my_empty = list()
+
+In [4]: my_empty_1 = []
+
+In [5]: print my_empty, type(my_emp
+my_empty    my_empty_1
+
+In [5]: print my_empty, type(my_empty)
+[] <type 'list'>
+
+In [7]: print my_empty_1, type(my_empty_1)
+[] <type 'list'>
+
+
+
+In [8]: print my_fruits[1]      ==> Indexing
+banana
+
+In [9]: print my_fruits[1:3]     ==> Slicing
+['banana', 'cherry']
+
+In [10]: my_fruits[0] = "Pineapple"   ==> Modifying the list element(In sting can's able to modify)
+
+In [11]: print my_fruits
+['Pineapple', 'banana', 'cherry', 'dates']
+
+
+IMP :
+"in" Keyword
+
+In [11]: print my_fruits
+['Pineapple', 'banana', 'cherry', 'dates']
+
+In [12]: 'banana' in my_fruits     ==> Searching element in list
+Out[12]: True
+
+Example program:
+Exclude the one list element from another list
+----------------------------------------------
+#!/usr/bin/env python
+
+absentee = ['kumar','pradeep','chandra','hari']
+student_list = ['hari','chandra','pradeep','rohit','kumar','koushik','mahesh','srini']
+
+for student in student_list:
+    if student in absentee:
+        continue
+    print "{0} is Pass".format(student)
+
+
+IMP: Converting list to string and vice versa
+----------------------------------------------
+in string
+----------
+In [1]: my_string = "python"
+
+In [2]: Lmy_string = list(my_string)
+
+In [3]: print Lmy_string
+['p', 'y', 't', 'h', 'o', 'n']
+
+In [4]: Lmy_string[0] = "T"     ==> we can modify string value after converting string into list.
+
+In [5]: print Lmy_string
+['T', 'y', 't', 'h', 'o', 'n']
+
+
+==>Converting list back to string
+---------------------------------
+
+In [11]: limiter = ''
+
+In [12]: limiter.join(Lmy_string)
+Out[12]: 'Tython'
+
+In [13]:
+
+In [13]: limiter = '-'
+
+In [14]: limiter.join(Lmy_string)
+Out[14]: 'T-y-t-h-o-n'
+
+
+In [15]: limiter = ''
+
+In [16]: mystring_orig = limiter.join(Lmy_string)
+
+In [17]: print mystring_orig, type(mystring_orig)
+Tython <type 'str'>
+
+In [18]:
+
+
+sentence
+-----------
+In [2]: my_sentence = "python is a good language"
+
+In [4]: Lmy_sentence = list(my_sentence)
+
+In [5]: print Lmy_sentence
+['p', 'y', 't', 'h', 'o', 'n', ' ', 'i', 's', ' ', 'a', ' ', 'g', 'o', 'o', 'd', ' ', 'l', 'a', 'n', 'g', 'u', 'a', 'g', 'e']
+
+In [6]: Lmy_sentence[0] = "P"
+
+In [7]: print Lmy_sentence
+['P', 'y', 't', 'h', 'o', 'n', ' ', 'i', 's', ' ', 'a', ' ', 'g', 'o', 'o', 'd', ' ', 'l', 'a', 'n', 'g', 'u', 'a', 'g', 'e']
+
+In [10]: my_sentence_original = ''.join(Lmy_sentence)
+
+In [11]: print my_sentence_original
+Python is a good language
+
+In [12]: print type(my_sentence_original)
+<type 'str'>
+
+
+(or)
+
+
+In [14]: my_sentence = "python is good language"
+
+In [15]: # our intention is to change the python to Django
+
+In [16]: Lmy_sentence = my_sentence.split(" ")
+
+In [17]: print Lmy_sentence
+['python', 'is', 'good', 'language']
+
+In [19]: print Lmy_sentence, type(Lmy_sentence)
+['python', 'is', 'good', 'language'] <type 'list'>
+
+In [20]: Lmy_sentence[0] = "Django"
+
+In [21]: print Lmy_sentence
+['Django', 'is', 'good', 'language']
+
+In [24]: my_sentence_original = ' '.join(Lmy_sentence)
+
+In [25]: print Lmy_sentence
+['Django', 'is', 'good', 'language']
+
+In [26]: print my_sentence_original
+Django is good language
+
+
+List methods and examples   ==> once you executed method on List object, that will affect permanently on existing list. so always create duplicate list of original and modify on duplicate one.
+--------------------------
+In [1]: my_list = ['apple','banana','cherry','dates','guava']
+
+In [2]: my_list.
+my_list.append   my_list.count    my_list.extend   my_list.index    my_list.insert   my_list.pop      my_list.remove   my_list.reverse  my_list.sort
+
+
+append()
+--------
+In [22]: my_list.append?
+Type:       builtin_function_or_method
+String Form:<built-in method append of list object at 0x2c76680>
+Docstring:  L.append(object) -- append object to end
+
+In [3]: my_list.append('dragon_fruit')
+
+In [4]: print my_list
+['apple', 'banana', 'cherry', 'dates', 'guava', 'dragon_fruit']
+
+
+count()
+--------
+In [23]: my_list.count?
+Type:       builtin_function_or_method
+String Form:<built-in method count of list object at 0x2c76680>
+Docstring:  L.count(value) -> integer -- return number of occurrences of value
+
+In [7]: print my_list
+['apple', 'banana', 'cherry', 'dates', 'guava', 'dragon_fruit', 'apple']
+
+In [8]: my_list.count('apple')
+Out[8]: 2
+
+
+extend()
+---------
+In [24]: my_list.extend?
+Type:       builtin_function_or_method
+String Form:<built-in method extend of list object at 0x2c76680>
+Docstring:  L.extend(iterable) -- extend list by appending elements from the iterable
+
+
+In [9]: another_fruit_list = ['mango','sapota','popaya','watermelaon','pineapple']
+
+In [10]: my_list.extend(another_fruit_list)
+
+In [11]: print my_list
+['apple', 'banana', 'cherry', 'dates', 'guava', 'dragon_fruit', 'apple', 'mango', 'sapota', 'popaya', 'watermelaon', 'pineapple']
+
+
+index()
+-------
+In [17]: my_list.index?
+Type:       builtin_function_or_method
+String Form:<built-in method index of list object at 0x2c76680>
+Docstring:
+L.index(value, [start, [stop]]) -> integer -- return first index of value.
+Raises ValueError if the value is not present.
+
+In [16]: print my_list
+['apple', 'banana', 'cherry', 'dates', 'guava', 'dragon_fruit', 'apple', 'mango', 'sapota', 'popaya', 'watermelaon', 'pineapple']
+
+In [19]: my_list.index('apple')
+Out[19]: 0
+
+In [20]: my_list.index('apple',1,10)
+Out[20]: 6
+
+
+insert()
+--------
+In [25]: my_list.insert?
+Type:       builtin_function_or_method
+String Form:<built-in method insert of list object at 0x2c76680>
+Docstring:  L.insert(index, object) -- insert object before index
+
+In [26]: print my_list
+['apple', 'banana', 'cherry', 'dates', 'guava', 'dragon_fruit', 'apple', 'mango', 'sapota', 'popaya', 'watermelaon', 'pineapple']
+
+In [28]: my_list.insert(0,'Test_fruit')
+
+In [29]: print my_list
+['Test_fruit', 'apple', 'banana', 'cherry', 'dates', 'guava', 'dragon_fruit', 'apple', 'mango', 'sapota', 'popaya', 'watermelaon', 'pineapple']
+
+
+pop()
+------
+In [31]: my_list.pop?
+Type:       builtin_function_or_method
+String Form:<built-in method pop of list object at 0x2c76680>
+Docstring:
+L.pop([index]) -> item -- remove and return item at index (default last).   ==> IMP : [index] means it's optional. if we don't give any index. then it will pop out last element.
+Raises IndexError if list is empty or index is out of range.
+
+In [3]: list1 = ["apple","banana","cherry","guava","popaya"]
+
+In [4]: len(list1)
+Out[4]: 5
+
+In [5]: list1.pop()
+Out[5]: 'popaya'
+
+
+In [32]: print my_list
+['Test_fruit', 'apple', 'banana', 'cherry', 'dates', 'guava', 'dragon_fruit', 'apple', 'mango', 'sapota', 'popaya', 'watermelaon', 'pineapple']
+
+In [34]: my_list.pop(0)
+Out[34]: 'Test_fruit'
+
+In [35]: print my_list
+['apple', 'banana', 'cherry', 'dates', 'guava', 'dragon_fruit', 'apple', 'mango', 'sapota', 'popaya', 'watermelaon', 'pineapple']
+
+
+remove()
+--------
+In [37]: my_list.remove?
+Type:       builtin_function_or_method
+String Form:<built-in method remove of list object at 0x2c76680>
+Docstring:
+L.remove(value) -- remove first occurrence of value.
+Raises ValueError if the value is not present.
+
+In [38]: print my_list
+['apple', 'banana', 'cherry', 'dates', 'guava', 'dragon_fruit', 'apple', 'mango', 'sapota', 'popaya', 'watermelaon', 'pineapple']
+
+In [39]: my_list.remove('apple')
+
+In [40]: print my_list
+['banana', 'cherry', 'dates', 'guava', 'dragon_fruit', 'apple', 'mango', 'sapota', 'popaya', 'watermelaon', 'pineapple']
+
+
+reverse()
+---------
+In [41]: my_list.reverse?
+Type:       builtin_function_or_method
+String Form:<built-in method reverse of list object at 0x2c76680>
+Docstring:  L.reverse() -- reverse *IN PLACE*
+
+
+In [41]: my_list.
+my_list.append   my_list.count    my_list.extend   my_list.index    my_list.insert   my_list.pop      my_list.remove   my_list.reverse  my_list.sort
+
+In [42]: my_list.reverse()
+
+In [43]: print my_list
+['pineapple', 'watermelaon', 'popaya', 'sapota', 'mango', 'apple', 'dragon_fruit', 'guava', 'dates', 'cherry', 'banana']
+
+ 
+ sort()
+ ------
+ In [44]: my_list.sort?
+Type:       builtin_function_or_method
+String Form:<built-in method sort of list object at 0x2c76680>
+Docstring:
+L.sort(cmp=None, key=None, reverse=False) -- stable sort *IN PLACE*;
+cmp(x, y) -> -1, 0, 1
+
+
+In [45]: print my_list
+['pineapple', 'watermelaon', 'popaya', 'sapota', 'mango', 'apple', 'dragon_fruit', 'guava', 'dates', 'cherry', 'banana']
+
+In [47]: my_list.sort()
+
+In [48]: print my_list
+['apple', 'banana', 'cherry', 'dates', 'dragon_fruit', 'guava', 'mango', 'pineapple', 'popaya', 'sapota', 'watermelaon']
+
+
+================================================================================================================================================================
+
+IMP : len  ==> gives the length of the object
+
+In [1]: my_string = "python"
+
+In [2]: len(my_string)
+Out[2]: 6
+
+In [3]: list1 = ["apple","banana","cherry","guava","popaya"]
+
+In [4]: len(list1)
+Out[4]: 5
+
+Example :
+--------------
+In [45]: print my_days
+['yesterday', 'today', 'tomorrow', 'dayafter']
+
+In [46]: for i in my_days:
+            print i[:my_days.index(i)+1].upper() + i[my_days.index(i)+1:]
+   ....:
+Yesterday
+TOday
+TOMorrow
+DAYAfter
+
+
+================================================================================================================================================================
+soft copy and deep copy
+------------------------
+
+example :
+--------
+my_fruits = ['apple','orange','banana','apple','orange']
+my_duplicate = []
+
+for fruit in my_fruits:
+    if my_fruits.count(fruit) > 1:
+        if fruit not in my_duplicate:
+            my_duplicate.append(fruit)
+        my_fruits.remove(fruit)
+
+print my_fruits
+print my_duplicate
+
+[root@server1 python_programs]# python duplicate.py
+['banana', 'apple', 'orange']
+['apple', 'orange']
+
+
+==> Try to add another orange in my_fruits and try to execute it gets failed because python behave very differently in memory level.
+
+[root@server1 python_programs]# cat duplicate.py
+#!/usr/bin/env python
+my_fruits = ['apple','orange','banana','apple','orange','orange']     ==> another orange added here. Now execution shows duplicates in my_fruits also.
+my_duplicate = []
+
+for fruit in my_fruits:
+    if my_fruits.count(fruit) > 1:
+        if fruit not in my_duplicate:
+            my_duplicate.append(fruit)
+        my_fruits.remove(fruit)
+
+print my_fruits
+print my_duplicate
+
+[root@server1 python_programs]# python duplicate.py
+['banana', 'apple', 'orange', 'orange']
+['apple', 'orange']
+[root@server1 python_programs]#
+
+
+Just Remember : Shallow Copy
+
+
+=   ==> "equal to", assignment. it will create the new object with new address
+
+
 
 
 Soft and Deep copy
@@ -8,7 +1690,7 @@ Just remember : shallow copy
 Soft copy
 ---------
 
-= 	==> "equal to" , assignment. It will create the new object with new address
+=   ==> "equal to" , assignment. It will create the new object with new address
 
 
 >>> my_a = [[1,2,3],[4,5,6],[7,8,9]]
@@ -61,7 +1743,7 @@ Deep copy
 ----------
 >>> my_a = [[1,2,3],[4,5,6],[7,8,9]]
 >>>
->>> import copy 	==> copy module is used to create the deep copy.
+>>> import copy     ==> copy module is used to create the deep copy.
 >>>
 >>> dir(copy)
 ['Error', 'PyStringMap', '_EmptyClass', '__all__', '__builtins__', '__doc__', '__file__', '__name__', '__package__', '_copy_dispatch', '_copy_immutable', '_copy_inst', '_copy_with_constructor', '_copy_with_copy_method', '_deepcopy_atomic', '_deepcopy_dict', '_deepcopy_dispatch', '_deepcopy_inst', '_deepcopy_list', '_deepcopy_method', '_deepcopy_tuple', '_keep_alive', '_reconstruct', '_test', 'copy', 'deepcopy', 'dispatch_table', 'error', 'name', 't', 'weakref']
@@ -120,7 +1802,7 @@ import copy
 fruit_list = ['cherry','apple','banana','cherry','apple','orange','watermelon','orange']
 dup_fruit_list = list()
 
-for fruit in fruit_list[:]:					==> Like Namespace. fruit_list[:] doesnot have variable. This will create and store in memory. This is deep copy with no variable.
+for fruit in fruit_list[:]:                 ==> Like Namespace. fruit_list[:] doesnot have variable. This will create and store in memory. This is deep copy with no variable.
     if fruit_list.count(fruit) > 1:
         if fruit not in dup_fruit_list:
             dup_fruit_list.append(fruit)
@@ -176,8 +1858,8 @@ Tuples :   ==> readonly representation of lists, support indexing and slicing
 >>> print gender,type(gender)
 ('male', 'female') <type 'tuple'>
 
->>> my_empty_tuple = ()					==> we can create empty tuple one way 
->>> my_empty_tuple_1 = tuple()			==> the another way of creating empty tuple
+>>> my_empty_tuple = ()                 ==> we can create empty tuple one way 
+>>> my_empty_tuple_1 = tuple()          ==> the another way of creating empty tuple
 
 Basically creating empty tuple is use less. because we can modify or add elements to tuple.
 
@@ -189,15 +1871,15 @@ Basically creating empty tuple is use less. because we can modify or add element
 
 
 
->>> my_string = ("python")					==> still it is string with ()
->>> print my_string, type(my_string)	
+>>> my_string = ("python")                  ==> still it is string with ()
+>>> print my_string, type(my_string)    
 python <type 'str'>
 
->>> my_string = ("python",)					==> atleast one element with comma separation will treat as tuple
+>>> my_string = ("python",)                 ==> atleast one element with comma separation will treat as tuple
 >>> print my_string, type(my_string)
 ('python',) <type 'tuple'>
 
->>> my_string = "python","django","devops","linux"		==> without () also will treat as tuple
+>>> my_string = "python","django","devops","linux"      ==> without () also will treat as tuple
 >>> print my_string, type(my_string)
 ('python', 'django', 'devops', 'linux') <type 'tuple'>
 >>>
@@ -219,7 +1901,7 @@ Lists and Tuples are called packages.
 
 >>> my_fruits = ('apple','banana','cherry','dragon')
 >>>
->>> a,b,c,d = my_fruits		==> unpacking.
+>>> a,b,c,d = my_fruits     ==> unpacking.
 >>>
 >>> print a
 apple
@@ -237,7 +1919,7 @@ Traceback (most recent call last):
 ValueError: too many values to unpack
 
 
->>> a,b,c,d,e = my_fruits					==> Mentioning more variables throws Error
+>>> a,b,c,d,e = my_fruits                   ==> Mentioning more variables throws Error
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 ValueError: need more than 4 values to unpack
@@ -264,7 +1946,7 @@ david is giving ansible
 -------------------------------------------
 >>> my_exams = [('1','one'),('2','two'),('3','three')]
 
->>> for num,alphahets in my_exams:										==> unpacking without braces. even without round backets it will treat as tuple
+>>> for num,alphahets in my_exams:                                      ==> unpacking without braces. even without round backets it will treat as tuple
 ...   print "{} is number and {} is alpha".format(num,alphahets)
 ...
 1 is number and one is alpha
@@ -272,7 +1954,7 @@ david is giving ansible
 3 is number and three is alpha
 
 
->>> for (num,alphahets) in my_exams:									==> unpacking without braces. even with round brackets.
+>>> for (num,alphahets) in my_exams:                                    ==> unpacking without braces. even with round brackets.
 ...   print "{} is number and {} is alpha".format(num,alphahets)
 ...
 1 is number and one is alpha
@@ -387,13 +2069,13 @@ key ==> value pair
 
 >>> my_alpha = {'a':'apple','b':'ball','c':'cat','e':'egg'}
 >>> print my_alpha, type(my_alpha)
-{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'egg'} <type 'dict'>  		==> the display is not order which we inserted. This is not really a matter because we are taking value always depend on key.
+{'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'egg'} <type 'dict'>       ==> the display is not order which we inserted. This is not really a matter because we are taking value always depend on key.
 
 >>> my_alpha['e']
 'egg'
 
->>> my_empty = {}		==> we can create the empty dictionary this way
->>> my_empty = dict()	==> we can create the empty dictionary this way also
+>>> my_empty = {}       ==> we can create the empty dictionary this way
+>>> my_empty = dict()   ==> we can create the empty dictionary this way also
 
 # use "pprint" module to print the dictionary the way it is inserted. 
 
@@ -401,18 +2083,18 @@ key ==> value pair
 #insert
 --------
 >>> my_alpha = {'a':'apple','b':'ball','c':'cat','e':'egg'}
->>> my_alpha['d'] = "dog"										==> If the key doesn't exist then the new key and value will be add
+>>> my_alpha['d'] = "dog"                                       ==> If the key doesn't exist then the new key and value will be add
 >>>
 
->>> my_alpha['f'] = ['fish','frog'] 		==> Adding list as value
+>>> my_alpha['f'] = ['fish','frog']         ==> Adding list as value
 >>> print my_alpha
 {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'f': ['fish', 'frog']}
 
->>> my_alpha['g'] = ('goat','grass')		==> Addiing tuple as value
+>>> my_alpha['g'] = ('goat','grass')        ==> Addiing tuple as value
 >>> print my_alpha
 {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': ('goat', 'grass'), 'f': ['fish', 'frog']}
 
->>> my_alpha['h'] = {'h1':'horse','h2':'hen'}	==> Adding dictionary as value
+>>> my_alpha['h'] = {'h1':'horse','h2':'hen'}   ==> Adding dictionary as value
 >>> print my_alpha
 {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': ('goat', 'grass'), 'f': ['fish', 'frog'], 'h': {'h2': 'hen', 'h1': 'horse'}}
 
@@ -465,7 +2147,7 @@ Modify
 >>> print my_alpha
 {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'egg', 'd': 'dog'}
 >>>
->>> my_alpha['e'] = "elephant"									==> If the key already exist then the value will modify.
+>>> my_alpha['e'] = "elephant"                                  ==> If the key already exist then the value will modify.
 >>>
 >>> print my_alpha
 {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog'}
@@ -475,11 +2157,11 @@ Modify
 >>> print my_alpha
 {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'frog'], 'h': {'h2': 'hen', 'h1': 'horse'}}
 
->>> my_alpha['f'][1] = "FROG"		==> Changing the f's list value of 1st index.
+>>> my_alpha['f'][1] = "FROG"       ==> Changing the f's list value of 1st index.
 >>> print my_alpha
 {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'horse'}}
 
->>> my_alpha['h']['h1'] = "HORSE"	==> changing the h's dictionaly value of h1 key.
+>>> my_alpha['h']['h1'] = "HORSE"   ==> changing the h's dictionaly value of h1 key.
 >>> print my_alpha
 {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
 >>>
@@ -490,7 +2172,7 @@ Modify
 -------------
 >>> print my_alpha
 {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
->>> "h" in my_alpha		==> we can only do "in" operation on key only in dictionary not on values of keys
+>>> "h" in my_alpha     ==> we can only do "in" operation on key only in dictionary not on values of keys
 True
 
 
@@ -501,7 +2183,7 @@ methods in dictionary
 ['__class__', '__cmp__', '__contains__', '__delattr__', '__delitem__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'clear', 'copy', 'fromkeys', 'get', 'has_key', 'items', 'iteritems', 'iterkeys', 'itervalues', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values', 'viewitems', 'viewkeys', 'viewvalues']
 
 
-clear()		==> removes all key and value from dictionary and makes the empty dictionary.
+clear()     ==> removes all key and value from dictionary and makes the empty dictionary.
 -------
 >>> print my_alpha
 {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
@@ -517,7 +2199,7 @@ copy()
 -------
 >>> my_alpha = {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
 
->>> my_dup_alpha = my_alpha  			==> it will create the soft copy. Address space of both my_alpha and my_dup_alpha
+>>> my_dup_alpha = my_alpha             ==> it will create the soft copy. Address space of both my_alpha and my_dup_alpha
 
 >>> print my_dup_alpha
 {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
@@ -529,7 +2211,7 @@ copy()
 
 
 
->>> my_alpha_copy_dup = my_alpha.copy()   		==> This will create the shallow copy. which the addess space is different of my_alpha and my_alpha_copy_dup
+>>> my_alpha_copy_dup = my_alpha.copy()         ==> This will create the shallow copy. which the addess space is different of my_alpha and my_alpha_copy_dup
 >>>
 >>> print my_alpha_copy_dup
 {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
@@ -561,7 +2243,7 @@ IMP : Interview questions : what is the use of soft, deep, shallow copies
 
 
 
-get()		==>To get the value of the key it is same like my_alpha['h']
+get()       ==>To get the value of the key it is same like my_alpha['h']
 ======
 >>> my_alpha = {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
 >>> print my_alpha
@@ -608,7 +2290,7 @@ IMP : Basically it will not overwrite the values if the key exist.
 {'a': 'ant', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'h': {'h2': 'hen', 'h1': 'HORSE'}}
 
 
-update()	==> This will update or inset the new key and values in dictionary. Means if key exist then it will update the value and if not then it will add the key and values
+update()    ==> This will update or inset the new key and values in dictionary. Means if key exist then it will update the value and if not then it will add the key and values
 --------
 
 >>> my_alpha = {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'i': None, 'h': {'h2': 'hen', 'h1': 'HORSE'}}
@@ -620,7 +2302,7 @@ Here a's value is updated and k an j is added with values.
 
 
 
-fromkeys()		==> Takes only keys and apply value for all keys in new dictionary.
+fromkeys()      ==> Takes only keys and apply value for all keys in new dictionary.
 ----------
 >>> my_alpha
 {'a': 'ANT', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'f': ['fish', 'FROG'], 'i': None, 'h': {'h2': 'hen', 'h1': 'HORSE'}, 'k': 'king', 'j': 'jeep'}
@@ -759,7 +2441,7 @@ KeyError: 'f'
 >>>
 
 
-popitem()		==> randomly removes the key and value pair it own. Basically No control with user which item need to remove. python will decide that. we don't know which item(key, value) will remove.
+popitem()       ==> randomly removes the key and value pair it own. Basically No control with user which item need to remove. python will decide that. we don't know which item(key, value) will remove.
 ============
 >>> print my_a
 {'a': 'apple', 'c': 'cat', 'b': 'ball', 'e': 'elephant', 'd': 'dog', 'g': 'goat', 'h': {'h2': 'hen', 'h1': 'HORSE'}}
@@ -799,7 +2481,7 @@ popitem()		==> randomly removes the key and value pair it own. Basically No cont
 >>> print my_a
 {}
 
->>> my_a.popitem()							==> if we run the popitem() on empty dictionary. this will throw the "KeyError" exception.
+>>> my_a.popitem()                          ==> if we run the popitem() on empty dictionary. this will throw the "KeyError" exception.
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 KeyError: 'popitem(): dictionary is empty'
@@ -821,7 +2503,7 @@ Functions :
 ...
 >>> print my_func()
 Hello World!!!
-None 						==> Return value
+None                        ==> Return value
 >>>
 
 IMP : Every function has a return value and if you have no return value we usually get a "None". Return marks the end of the function.
@@ -842,7 +2524,7 @@ Hello world                    ==> There is no None value.
 ...   print "This is line2"
 ...
 >>> print my_func()
-Hello python 					
+Hello python                    
 >>>
 
 After return no line will be executed. when the function encounter the return it will understand this is the time to go out from function. Control will not stay there.
@@ -855,56 +2537,248 @@ After return no line will be executed. when the function encounter the return it
 namespace / local variable / global variables :
 ==========================================================
 
+ IMP : Namespace is container of variables.
+
+
+>>> def my_func():
+...   z = 1
+...   return z
+... 
+>>> print my_func()
+1
+>>> 
+>>> print z
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'z' is not defined
+
+# z is a local variable
+# Local variables is available to us during the runtime of the function
+# There is no syntax in place to get the local variable values outside of the fuction
+
+(1) locals()
+=============
+
+
+>>> def my_func():
+...   z = 1
+...   print locals()
+...   return z
+... 
+>>> 
+>>> print my_func()
+{'z': 1}
+1
+>>> 
+
+----------------------------
+
+>>> def my_func():
+...   x = 1
+...   y = 2
+...   z = 3
+...   print locals()   ==> locals() is inbuilt funcation which gives the example of namespace
+...   return ""
+
+>>> print my_func()
+{'y': 2, 'x': 1, 'z': 3}
+
+>>> type(my_func())
+{'y': 2, 'x': 1, 'z': 3}
+<type 'str'>
+
+-------------------------------
+
+
+>>> y = 10
+>>> 
+>>> def my_func():
+...   print locals()
+...   return y    ==> actually y is not defined. first finds the locally if any values assigned for y. if not available then it will search for globally. Only "return" will check this 
+... 
+>>> print my_func()
+{}
+10      ==> first tried y value locally and it is not declared and assigned any value. Then it will search for globally for y value.
+>>> 
 
 
 
+>>> z = 10
+>>> def my_func():
+...   z = 2
+...   print locals()
+...   return z
+... 
+>>> print my_func()
+{'z': 2}       ==> in this case z is available locally
+2              ==> In this case z is available locally so it will not go for globally.
+>>> 
 
 
 
+IMP : Local is given higher precedence than global.
 
 
 
+(2) globals()
+==============
+In [1]: globals()
+Out[1]: 
+{'In': ['', u'globals()'],
+ 'Out': {},
+ '_': '',
+ '__': '',
+ '___': '',
+ '__builtin__': <module '__builtin__' (built-in)>,
+ '__builtins__': <module '__builtin__' (built-in)>,
+ '__doc__': 'Automatically created module for IPython interactive environment',
+ '__name__': '__main__',
+ '_dh': [u'/root'],
+ '_i': u'',
+ '_i1': u'globals()',
+ '_ih': ['', u'globals()'],
+ '_ii': u'',
+ '_iii': u'',
+ '_oh': {},
+ '_sh': <module 'IPython.core.shadowns' from '/usr/lib/python2.6/site-packages/IPython/core/shadowns.pyc'>,
+ 'exit': <IPython.core.autocall.ExitAutocall at 0x12128d0>,
+ 'get_ipython': <bound method TerminalInteractiveShell.get_ipython of <IPython.frontend.terminal.interactiveshell.TerminalInteractiveShell object at 0x120e350>>,
+ 'help': Type help() for interactive help, or help(object) for help about object.,
+ 'quit': <IPython.core.autocall.ExitAutocall at 0x12128d0>}
+
+In [2]: z = 10   ==> This will add in globals() Namespace
+
+In [3]: globals()
+Out[3]: 
+{'In': ['', u'globals()', u'z = 10', u'globals()'],
+ 'Out': {1: {...}},
+ '_': {...},
+ '_1': {...},
+ '__': '',
+ '___': '',
+ '__builtin__': <module '__builtin__' (built-in)>,
+ '__builtins__': <module '__builtin__' (built-in)>,
+ '__doc__': 'Automatically created module for IPython interactive environment',
+ '__name__': '__main__',
+ '_dh': [u'/root'],
+ '_i': u'z = 10',
+ '_i1': u'globals()',
+ '_i2': u'z = 10',
+ '_i3': u'globals()',
+ '_ih': ['', u'globals()', u'z = 10', u'globals()'],
+ '_ii': u'globals()',
+ '_iii': u'',
+ '_oh': {1: {...}},
+ '_sh': <module 'IPython.core.shadowns' from '/usr/lib/python2.6/site-packages/IPython/core/shadowns.pyc'>,
+ 'exit': <IPython.core.autocall.ExitAutocall at 0x12128d0>,
+ 'get_ipython': <bound method TerminalInteractiveShell.get_ipython of <IPython.frontend.terminal.interactiveshell.TerminalInteractiveShell object at 0x120e350>>,
+ 'help': Type help() for interactive help, or help(object) for help about object.,
+ 'quit': <IPython.core.autocall.ExitAutocall at 0x12128d0>,
+ 'z': 10}
+
+In [4]: print z
+10               ==> This value will get the global() namspace.
+
+In [5]: 
+
+
+(3) global      ==> global keyword used to get the variables and values from global name space into the across the functions
+============
+
+In [3]: balance = 0      ==> act like a global variable
+
+In [4]: def deposite():
+   ...:     global balance              ==> taking balance variable from global namespace
+   ...:     print locals()
+   ...:     balance = balance + 1000    ==> updating the global value in global namespace
+   ...:     return balance
+   ...: 
+
+In [5]: def withdraw():
+   ...:     global balance              ==> taking balance variable from global namespace
+   ...:     print locals()
+   ...:     balance = balance -300      ==> updating the global value in global namespace
+   ...:     return balance
+   ...: 
+
+
+In [7]: deposite()
+{}
+Out[7]: 1000            ==> updated in global variable
+
+In [8]: withdraw()
+{}
+Out[8]: 700             ==> updated in global variable
 
 
 
+ 
+Keywords as fo now learned in function topic :
+def
+return
+locals()
+globals()
+global
 
 
 
+functional arguments
+======================
+In [1]: def my_add(a,b)
+  File "<ipython-input-1-937371a0739d>", line 1
+    def my_add(a,b)
+                   ^
+SyntaxError: invalid syntax
 
 
+In [2]: def my_add(a,b):
+   ...:     print locals()
+   ...:     return a + b
+   ...: 
+
+In [3]: print my_add()      ==> calling funtion without any arguments throws the Exception
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-3-5fea8d13c546> in <module>()
+----> 1 print my_add()
+
+TypeError: my_add() takes exactly 2 arguments (0 given)
+
+In [4]: my_add(10,20)
+{'a': 10, 'b': 20}
+Out[4]: 30
+
+In [5]: my_add("Harish","Peddapati")
+{'a': 'Harish', 'b': 'Peddapati'}
+Out[5]: 'HarishPeddapati'
 
 
+key based
+===========
+
+In [6]: my_add(a = "Peddapati", b = "Harish")    ==> Passing a, b key based values to function with order 
+{'a': 'Peddapati', 'b': 'Harish'}
+Out[6]: 'PeddapatiHarish'
+
+In [7]: my_add(b = "Peddapati", a = "Harish")     ==> Identify here. i am passing a and b in order. passed based on key so no order is required 
+{'a': 'Harish', 'b': 'Peddapati'}
+Out[7]: 'HarishPeddapati'
 
 
+In [8]: my_add(a = "Harish", c = "Peddapati")     ==> Identify here. c is not in argument. so it throws Error. 
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-8-329d76597a72> in <module>()
+----> 1 my_add(a = "Harish", c = "Peddapati")
+
+TypeError: my_add() got an unexpected keyword argument 'c'
+
+In [9]: 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+IMP : in python everything is an objects.
+Q) How are arguments passed in python - as a values, as a referene
+Ans: The arguments are passed as objects   (In python passing arguments as objects. values or reference both are wrong). In python it is passed as an objects.
 
 
 
