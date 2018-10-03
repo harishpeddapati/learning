@@ -2782,3 +2782,705 @@ Ans: The arguments are passed as objects   (In python passing arguments as objec
 
 
 
+
+default arguments
+==================
+
+Rule : First non default arguments and then default arguments. It means non-default arguments follows default arguments
+====
+>>> def my_multi(num,default=10):   ==> default is not keyword. it's just variable. default arguments should be in last
+...   for value in range(1,default+1):
+...     print "{0:2d} * {1:2d} = {2:3d}".format(num, value, num*value)
+...
+>>>
+>>> my_multi(10)
+10 *  1 =  10
+10 *  2 =  20
+10 *  3 =  30
+10 *  4 =  40
+10 *  5 =  50
+10 *  6 =  60
+10 *  7 =  70
+10 *  8 =  80
+10 *  9 =  90
+10 * 10 = 100
+
+
+
+>>> def putty(hostname,username,password,port=22):   ==> default arguments(port is in this example is default argument) should be in last position.
+...   return hostname,port
+...
+
+>>> putty("server1","root","password")
+('server1', 22)
+>>>
+
+
+
+
+*, **, *args, **kwargs
+========================
+
+" * "    ==> Basically used to pass the values from list or tuple
+=====
+
+>>> def my_func(a,b):
+...   return a + b
+...
+>>>
+>>> my_list = [10,20]
+>>>
+>>> print my_func(*my_list)
+30
+>>>
+
+
+>>> my_list_1 = [10,20,30]
+>>>
+>>> print my_func(*my_list_1)					==> the list items and argument in function cound should be same.
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: my_func() takes exactly 2 arguments (3 given)
+>>>
+
+
+>>> def my_func(a,b,c=10):		==>  we can add the default arguments
+...   return a + b + c
+...
+>>> print my_func(*my_list)
+40
+
+
+>>> def my_func(a,b,c):			==> argument count is greater than the list of values passing from list
+...   return a + b + c
+...
+>>> print my_func(*my_list)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: my_func() takes exactly 3 arguments (2 given)
+>>>
+
+
+
+
+" ** "		==> Basically used to pass the values from dictionary
+======
+>>> def my_func(a,b):
+...  return a + b
+...
+>>>
+>>> my_dict = {'a':10,'b':20}
+>>>
+>>> print my_func(**my_dict)
+30
+>>>
+
+
+>>> def my_func(a,b,c=10):   ==> passing default arguments
+...  return a + b +c
+...
+>>> my_dict = {'a':10,'b':20}
+>>>
+>>> print my_func(**my_dict)
+40
+>>>
+
+
+
+>>> def my_func(a,b,c=10):	==> "c" value will overwrite with dictionary's "c" value
+...  return a + b +c
+...
+>>> my_dict = {'a':10,'b':20,'c':30}
+>>>
+>>> print my_func(**my_dict)
+60
+>>>
+
+
+
+
+" *args "
+========
+
+example :
+max(...)
+    max(iterable[, key=func]) -> value
+    max(a, b, c, ...[, key=func]) -> value
+
+    With a single iterable argument, return its largest item.
+    With two or more arguments, return the largest argument.
+
+
+>>> max(10,20,0,99)   ==> Taken max methods here because we are not bother about how many number of argument to the method. max method worked based on *args .please go for the below examples
+99
+>>>
+
+
+
+>>> def my_big(*args):
+...   return args 			==> arguments give in tuple
+...
+>>> print my_big(10,2,6,3,4,5),type(my_big(10,2,6,3,4,5))
+(10, 2, 6, 3, 4, 5) <type 'tuple'>
+>>>
+
+
+>>> list1 = [10,2,6,3,4,5]
+>>>
+>>> def my_big(*args):
+...   return args
+...
+>>>
+>>> print my_big(list1), type(my_big(list1))
+([10, 2, 6, 3, 4, 5],) <type 'tuple'>
+>>>
+>>> print my_big(list1,999), type(my_big(list1,999))
+([10, 2, 6, 3, 4, 5], 999) <type 'tuple'>
+>>>
+
+
+
+" **kwargs "
+=============
+in this type no need to bother on number of arguments and type of arguments and no need to follow the standard variables. Here variables and values will change dynamically. Because we are passing values along with variables dynamically. arguments takes and give output in Dictionary format.
+
+
+>>> def my_func(**kwargs):
+...   return kwargs
+...
+>>>
+>>> print my_func(name="Harish",age=28,gender="male")    ==> arguments are 3 and variables and values are different each time
+{'gender': 'male', 'age': 28, 'name': 'Harish'}			 ==> output is dictionary object all the time
+>>>
+>>> print my_func(place="Hyderbad")			==> argument is only 1 and variables and values are different each time
+{'place': 'Hyderbad'}
+>>>
+>>> print my_func(name="Harish",age=28)		==> arugments are 2 and variables and values are different each time
+{'age': 28, 'name': 'Harish'}
+>>>
+
+
+
+
+>>> def my_func(**kwargs):
+...   for i in kwargs:
+...     print i,kwargs[i]
+...
+>>>
+>>> print my_func(name="Harish",age=28,gender="male")
+gender male
+age 28
+name Harish
+None
+
+
+>>> def my_func(**kwargs):
+...   for i in kwargs:
+...     return i,kwargs[i]		==> if we use return the controll will come out for the first iteration
+...
+>>> print my_func(name="Harish",age=28,gender="male")
+('gender', 'male')
+>>>
+
+
+
+>>> def my_callme(**kwargs):
+...   if 'name' in kwargs:
+...     print "my name is {}".format(kwargs['name'])
+...   if 'gender' in kwargs:
+...      print "Gender is {}".format(kwargs['gender'])
+...   if 'mobile' in kwargs:
+...      print "Mobile number is {}".format(kwargs['mobile'])
+...   if 'age' in kwargs:
+...      print "Age is {}".format(kwargs['age'])
+...   return ""
+...
+>>> print my_callme(name="Harish")
+my name is Harish
+
+>>> print my_callme(name="Harish",age=28)
+my name is Harish
+Age is 28
+
+>>> print my_callme(name="Harish",age=28,mobile="9899856345",gender="male")
+my name is Harish
+Gender is male
+Mobile number is 9899856345
+Age is 28
+
+>>>
+
+
+
+IMP : Function is a first class object
+----------------------------------------
+
+>>> def foo():
+...  pass
+...
+>>> print type(foo)
+<type 'function'>
+
+
+
+>>> def my_extra(my_func,x,y): 				==> you can pass funcation also like object. because function is also an object
+...   return my_func(x,y)
+...
+>>>
+>>> def my_add(x,y):
+...   return x + y
+...
+>>> def my_sub(x,y):
+...   return x - y
+...
+>>>
+>>> my_extra(my_add,11,22)
+33
+>>> my_extra(my_sub,20,8)
+12
+>>>
+
+
+
+function with in a function
+------------------------------------
+
+>>> def my_upper():
+...   y = 10					==> y is local variable in local namespace
+...   def my_lower():			==> my_lower() is local function in local namespace.
+...     return y
+...   return my_lower()
+...
+>>> my_upper()
+10
+>>>
+
+
+closure    ==> This topic will come later part 
+--------------
+>>> my_upper
+<function my_upper at 0x7f345c1526e0> 			==> Address of the fuction
+
+
+>>> new = my_upper()
+>>>
+>>> new
+10
+>>> id(new)
+13044624				==> same addess to new and my_upper()
+>>> id(my_upper())
+13044624
+>>>
+
+
+========================================================================================================================================================================================================
+
+map, filter and lamba
+=======================
+
+map 	==> Returns the list of the results of applying the funtions(ex:my_square in below example) to the items of the arguments sequences( ex: [11,12,13,14,15,16,17,18,19,20] in below example)
+=====
+>>> def my_square(a):
+...   return a * a
+...
+>>>
+>>> print my_square(5)
+25
+>>>
+>>> map(my_square, [11,12,13,14,15,16,17,18,19,20])    ==> my_square will apply each item in the list and give out in the form of list.
+[121, 144, 169, 196, 225, 256, 289, 324, 361, 400]
+>>>
+
+--------------------
+
+>>> def my_add(a,b):
+...   return a + b
+
+>>> map(my_add,[1,2,3,4],[5,6,7,8]) 			==> first item of each list will pass to my_add function for a and b values.
+[6, 8, 10, 12]
+>>>
+
+
+filter    ==> give only truth of the function (it means filter will check can we do the action with item or not that be the output should be truth)
+=======
+
+>>> def my_even(a):
+...   if a % 2 == 0:
+...     return "even"
+...
+>>>
+>>> my_even(2)
+'even'
+>>>
+>>> my_even(3)
+>>>
+>>> filter(my_even,[11,12,13,14,15,16,17,18,19,20])     
+[12, 14, 16, 18, 20]   									==> output is not "even" for items. output is showing which item can be the truth of the function. 
+>>>
+
+
+if we use map here the output like below
+
+>>> map(my_even,[11,12,13,14,15,16,17,18,19,20])
+[None, 'even', None, 'even', None, 'even', None, 'even', None, 'even']
+>>>
+
+
+
+lambda  	==> Creating the function on the fly ( lamba is basically as name less function)
+========
+
+>> def my_square(a):
+...   return a * a
+
+>>> map(my_square, [11,12,13,14,15,16,17,18,19,20])
+[121, 144, 169, 196, 225, 256, 289, 324, 361, 400]
+
+
+==> use lambda for above example with maps
+
+>>> map(lambda a:a*a,[11,12,13,14,15,16,17,18,19,20])
+[121, 144, 169, 196, 225, 256, 289, 324, 361, 400]
+>>>
+
+---------------
+
+>>> def my_even(a):
+...   if a % 2 == 0:
+...     return "even"
+
+>>> filter(my_even,[11,12,13,14,15,16,17,18,19,20])     
+[12, 14, 16, 18, 20]  
+
+
+==> use lambda for above example with filter
+
+>>> filter(lambda a:a%2 == 0,[11,12,13,14,15,16,17,18,19,20])
+[12, 14, 16, 18, 20]
+>>>
+
+
+-----------------
+
+>>> def my_add(a,b):
+...   return a + b
+
+>>> map(my_add,[1,2,3,4],[5,6,7,8]) 			==> first item of each list will pass to my_add function for a and b values.
+[6, 8, 10, 12]
+>>>
+
+
+==> use lambda for above example with map
+
+>>> map(lambda a,b:a+b,[1,2,3,4],[5,6,7,8])   ==> each items of both list based on index will assign to a and b
+[6, 8, 10, 12]
+>>>
+
+
+==> do google search with "100 exapmple on python + github"
+
+
+
+
+========================================================================================================================================================================================================
+
+Modules  (like packages)
+=======
+
+1.what is a module
+	module is nothing but a python program. The main purpose of module is code reusability. 
+
+	ex:
+	   p1 - f1, f2, f3
+	   p2 - f1, f2, f3, p1.f1
+
+
+2.why do we need a module
+	Code reusability
+	you ar not worried about the variable namespace(similar names in f1 filename in both modules)	
+
+3.why do we save out program as a .py format
+		1.for platform dependency to windows
+IMP:	2. if you want to use your program as module in future you need to save it with .py format
+		3. you can identify this is python code
+
+
+Built in Modules:
+-----------------
+help> modules
+
+Please wait a moment while I gather a list of all available modules...
+
+BaseHTTPServer      binascii            inspect             runpy
+Bastion             binhex              io                  sched
+CDROM               bisect              ipaddress           select
+CGIHTTPServer       bsddb               itertools           selinux
+ConfigParser        bz2                 jinja2              semanage
+Cookie              cPickle             jmespath            seobject
+Crypto              cProfile            json                sepolgen
+DLFCN               cStringIO           keyczar             sepolicy
+DocXMLRPCServer     calendar            keyword             sets
+HTMLParser          cffi                kitchen             setuptools
+IN                  cgi                 langtable           sgmllib
+IPy                 cgitb               lib2to3             sha
+M2Crypto            chardet             liblzma             shelve
+MimeWriter          chunk               libxml2             shlex
+Queue               cmath               libxml2mod          shutil
+SSSDConfig          cmd                 linecache           signal
+SimpleHTTPServer    code                linuxaudiodev       site
+SimpleXMLRPCServer  codecs              locale              six
+SocketServer        codeop              logging             slip
+StringIO            collections         lsm                 smtpd
+TYPES               colorsys            lxml                smtplib
+UserDict            commands            lzma                snack
+UserList            compileall          macpath             sndhdr
+UserString          compiler            macurl2path         socket
+_LWPCookieJar       configobj           magic               sos
+_MozillaCookieJar   contextlib          mailbox             spwd
+__builtin__         cookielib           mailcap             sqlite3
+__future__          copy                markupbase          sqlitecachec
+_abcoll             copy_reg            markupsafe          sre
+_ast                createrepo          marshal             sre_compile
+_audit              crypt               math                sre_constants
+_bisect             cryptography        md5                 sre_parse
+_bsddb              csv                 mhlib               ssl
+_cffi_backend       ctypes              mimetools           ssmlib
+_codecs             curl                mimetypes           stat
+_codecs_cn          curses              mimify              statvfs
+_codecs_hk          datetime            mmap                string
+_codecs_iso2022     dateutil            modulefinder        stringold
+_codecs_jp          dbhash              multifile           stringprep
+_codecs_kr          dbm                 multiprocessing     strop
+_codecs_tw          dbus                mutex               struct
+_collections        decimal             netrc               subprocess
+_crypt              decorator           new                 sunau
+_csv                deltarpm            nis                 sunaudio
+_ctypes             difflib             nntplib             symbol
+_curses             dircache            ntpath              symtable
+_curses_panel       dis                 nturl2path          sys
+_dbus_bindings      distutils           numbers             sysconfig
+_dbus_glib_bindings dl                  opcode              syslog
+_deltarpm           doctest             operator            tabnanny
+_elementtree        drv_libxml2         optparse            tarfile
+_functools          dumbdbm             os                  telnetlib
+_hashlib            dummy_thread        os2emxpath          tempfile
+_heapq              dummy_threading     ossaudiodev         termios
+_hotshot            easy_install        paramiko            test
+_io                 email               parser              textwrap
+_json               encodings           pdb                 this
+_locale             enum                perf                thread
+_lsprof             errno               pickle              threading
+_markerlib          ethtool             pickletools         time
+_multibytecodec     exceptions          pipes               timeit
+_multiprocessing    fcntl               pkg_resources       timing
+_osx_support        filecmp             pkgutil             toaiff
+_pyio               fileinput           platform            token
+_random             firewall            plistlib            tokenize
+_semanage           fnmatch             ply                 trace
+_snack              formatter           policycoreutils     traceback
+_socket             fpformat            popen2              tty
+_sqlite3            fractions           poplib              tuned
+_sqlitecache        ftplib              posix               types
+_sre                functools           posixfile           unicodedata
+_ssl                future_builtins     posixpath           unittest
+_strptime           gc                  pprint              urlgrabber
+_struct             gdbm                profile             urllib
+_symtable           genericpath         pstats              urllib2
+_sysconfigdata      getopt              pty                 urlparse
+_threading_local    getpass             pwd                 user
+_warnings           gettext             py_compile          uu
+_weakref            gi                  pyasn1              uuid
+_weakrefset         glob                pyclbr              validate
+_yaml               gpgme               pycparser           warnings
+abc                 grp                 pycurl              wave
+acutil              gzip                pydoc               weakref
+aifc                hashlib             pydoc_data          webbrowser
+ansible             heapq               pyexpat             whichdb
+antigravity         hmac                pygtkcompat         wsgiref
+anydbm              hotshot             pyudev              xattr
+argparse            htmlentitydefs      quopri              xdrlib
+array               htmllib             random              xml
+ast                 httplib             re                  xmllib
+asynchat            httplib2            readline            xmlrpclib
+asyncore            idlelib             redhat_support_lib  xxsubtype
+atexit              idna                redhat_support_tool yaml
+audiodev            ihooks              repr                yum
+audioop             imageop             resource            yumutils
+audit               imaplib             rexec               zipfile
+auparse             imghdr              rfc822              zipimport
+babel               imp                 rlcompleter         zlib
+backports           importlib           robotparser
+base64              imputil             rpm
+bdb                 iniparse            rpmUtils
+
+
+
+Different ways to import modules
+
+
+==> we can also list the modules by running the following command
+		pip freeze
+
+
+
+How to import modules:
+========================
+1) import math 				==> All programs and methods will import under math module. 
+
+2) import math as m 			==> instead of using math.pow(2,3), you can use m.pow(2,3). we called as alias name.
+
+3) from math import pow,pi 	==> import only the variables which are needed. you want to use module namespace as your local namespace. Imports only pow, pi from math module
+
+4) from math import *          ==> Strictly not recommended this method. This will actually populate to local namespace to all un-necessary variables from a different modules.
+
+
+
+what is the difference between 1 and 4
+1 will tells to python we have module in place. we have to explicitly call it like math.pow into the namespace. namespace is the set of variable locally in your program.
+4 will calls all variables and it's values into your local namespace. loading with un-necesary variables into the local namespace is not good actually.
+
+
+
+create module and use
+==========================
+[root@gie1vgso203182 ~]# cat first.py
+
+#!/usr/bin/env python
+
+version = 1.0
+
+def my_add(a,b):
+    ''' Adding two numbers inside the program   ''' 			==> Adding Docstring ('''  ---------   ''')
+    return a+b
+
+def my_sub(a,b):
+    ''' Subtraction two numbers inside the program '''
+    if a>b:
+        return a-b
+    else:
+        return b-a
+
+def my_div(a,b):
+    ''' Dividing two numbers inside the program '''
+    return a/b
+
+def my_multi(a,b):
+    ''' Mulitiplicaion two numbers inside the program   '''
+    return a*b
+
+
+[root@gie1vgso203182 ~]# python
+Python 2.7.5 (default, Aug  2 2016, 04:20:16)
+[GCC 4.8.5 20150623 (Red Hat 4.8.5-4)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> ls -l
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'ls' is not defined
+>>>
+>>> import first 						==> importing first module (program is a module)
+>>>
+>>> dir(first)							==> checking funcation available
+['__builtins__', '__doc__', '__file__', '__name__', '__package__', 'my_add', 'my_div', 'my_multi', 'my_sub', 'version']
+>>>
+>>> print first.version 				==> printing variable value from "first" module
+1.0
+>>>
+>>> first.my_add(10,20) 				==> accessing my_add function from first module (like math.pow(2,3))
+30
+>>>
+>>> help(first.my_add) 					==> checing help of a function. Which displays the docstring which is added in functions.
+
+Help on function my_add in module first:
+
+my_add(a, b)
+    Adding two numbers inside the program
+
+
+==================
+if we change the version = 2.0
+
+even again if we check the output will be 1.0 . Those changes will not reflect in the current session.
+even import again the the verion = 1.0
+
+# 1. you exit out of python and login again and import the first modlue   (you will loose all work and namespace variables of current session this is not best practice)
+
+# 2. reload      ==> Even you come out from current session. if the .pyc is exist in that path. if we import the changed code in .py will not affect in current session. once we reload the module then .pyc will regenerate then it will import. the namespace will get affect.
+
+>>> first.version
+1.0
+>>> reload
+<built-in function reload>
+>>>
+>>> reload(first)     					==> reload the module to update the python code in namespace
+<module 'first' from 'first.py'>
+>>>
+>>> first.version
+2.0
+>>>
+
+
+
+[root@gie1vgso203182 ~]# ls -l | grep -i first
+-rwxr--r--  1 root root    435 Oct  1 10:34 first.py
+-rw-------  1 root root    814 Oct  1 10:35 first.pyc 		==> when you import first module the first.pyc will be create automatically and this is byte-compiled code. when we next time import first module the module will read from .pyc file
+[root@gie1vgso203182 ~]#
+[root@gie1vgso203182 ~]# file first.py
+first.py: Python script, ASCII text executable
+[root@gie1vgso203182 ~]#
+[root@gie1vgso203182 ~]# file first.pyc
+first.pyc: python 2.7 byte-compiled 					==> byte code and it is compiled one
+[root@gie1vgso203182 ~]#
+
+
+
+IMP : .pyc is byte compiled file. This will create whenever you load a module. Also we can create using python command line. 
+
+
+
+-----------------------------------------
+[root@gie1vgso203182 ~]# cat first.py
+#!/usr/bin/env python
+
+version = 2.0
+
+def my_add(a,b):
+    ''' Adding two numbers inside the program   '''
+    return a+b
+
+def my_sub(a,b):
+    ''' Subtraction two numbers inside the program '''
+    if a>b:
+        return a-b
+    else:
+        return b-a
+
+def my_div(a,b):
+    ''' Dividing two numbers inside the program '''
+    return a/b
+
+def my_multi(a,b):
+    ''' Mulitiplicaion two numbers inside the program   '''
+    return a*b
+
+##  MAIN  ##
+
+print ("Test lines")
+
+
+
+
+
+>>> import first  			==> if we import module it is executing. actually it should not execute. It should be execute when we explicity execute first.py with python like #python first.py
+Test lines 					==> Here both importing and executing 
+>>> first.version
+2.0
+>>>
+
+
+
+
+
+
+
+
